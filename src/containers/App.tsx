@@ -19,6 +19,7 @@ const App: FC = () => (
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route path="/login" component={LoginPage} />
+        <Route path="/signup" component={SignupPage} />
         <Route path="/checkout" component={CheckoutPage} />
       </Switch>
     </div>

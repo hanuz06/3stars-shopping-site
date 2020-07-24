@@ -15,6 +15,7 @@
     "@types/react-test-renderer": "^16.9.2",
     "antd": "^4.4.3",
     "craco-less": "^1.17.0",
+    "firebase": "^7.17.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
