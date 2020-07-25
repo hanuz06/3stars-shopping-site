@@ -9,11 +9,11 @@ export const useStyles = createUseStyles({
     display: "flex",
     height: "auto",
     minHeight: 40,
-    line: { height: 5 },
+    lineHeight: 2,
     background: { color: "black" },
   },
   lowerContainer: {
     display: "flex",
-    background: { color: "white" },
+    background: { color: "#fff" },
   },
 });

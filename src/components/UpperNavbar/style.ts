@@ -1,6 +1,13 @@
 import { createUseStyles } from "react-jss";
 
 export const useStyles = createUseStyles({
+  upperContainer: {
+    display: "flex",
+    height: "auto",
+    minHeight: 40,
+    lineHeight: 2,
+    background: { color: "black" },
+  },
   container: {
     display: "flex",
     width: "80%",
@@ -22,10 +29,11 @@ export const useStyles = createUseStyles({
   },
   textStyle: {
     color: "white",
+    marginLeft: 10,
   },
   topRight: {
     display: "flex",
-    justifyContent: "space-around",
+    justifyContent: "flex-end",
     align: { items: "center" },
     width: "50%",
     height: "100%",
@@ -35,16 +43,16 @@ export const useStyles = createUseStyles({
     alignItems: "center",
     justifyContent: "space-around",
     height: "100%",
-    width: 120,
+    width: 100,
     maxWidth: 120,
   },
   loginSignupLink: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "center",
     height: "100%",
     width: "100%",
-    maxWidth: 150,
+    maxWidth: 200,
   },
 
   "@media (max-width: 1120px)": {
@@ -68,6 +76,9 @@ export const useStyles = createUseStyles({
       flex: { direction: "column" },
       width: "80%",
       alignItems: "center",
+    },
+    contactInfo: {
+      justifyContent: "center",
     },
   },
 });

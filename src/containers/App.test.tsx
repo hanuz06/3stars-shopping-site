@@ -12,15 +12,15 @@ beforeEach(() => {
 });
 
 
-test("renders learn react link", () => {
+// test("renders learn react link", () => {
   // const { getByText } = render(<App />);
   // const linkElement = getByText(/Button/i);
   // expect(linkElement).toBeInTheDocument();
   // const wrapper = shallow(<App />);
-  const textInButton = wrapper.find("Button").text();
+//   const textInButton = wrapper.find("Button").text();
  
-  expect(textInButton).toBe("Button");
-});
+//   expect(textInButton).toBe("Button");
+// });
 
 describe("<App />", () => {
   it("match to snapshot", () => {
