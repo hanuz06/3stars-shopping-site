@@ -13,7 +13,7 @@ export const useStyles = createUseStyles({
     width: "80%",
     height: "100%",
     margin: "auto",
-    padding: "5px",
+    padding: "5px",    
   },
   topLeft: {
     display: "flex",
@@ -25,7 +25,7 @@ export const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
-    width: 130,
+    width: 140,    
   },
   textStyle: {
     color: "white",

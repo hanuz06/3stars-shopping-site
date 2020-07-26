@@ -12,10 +12,20 @@ export const useStyles = createUseStyles({
   container: {
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
     width: "80%",
     height: "100%",
     margin: "auto",
     padding: "5px",
     backgroundColor: "#fff",
+  },
+  searchWindow: {
+    maxWidth: 550,
+  },
+  "@media (max-width: 1120px)": {
+    container: {
+      flex: { direction: "column" },
+      width: "100%",
+    },
   },
 });
