@@ -17,15 +17,15 @@ export const useStyles = createUseStyles({
   },
   topLeft: {
     display: "flex",
-    justifyContent: "space-around",
-    width: "50%",
+    justifyContent: "space-between",
+    width: "40%",
     height: "100%",
   },
   contactInfo: {
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
-    width: 140,    
+    minWidth: 150,    
   },
   textStyle: {
     color: "white",
@@ -35,7 +35,7 @@ export const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "flex-end",
     align: { items: "center" },
-    width: "50%",
+    width: "55%",
     height: "100%",
   },
   snsLinks: {
