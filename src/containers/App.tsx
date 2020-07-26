@@ -18,20 +18,32 @@ import HeaderContainer from "./HeaderContainer";
 const { Header, Content, Footer } = Layout;
 
 const App: FC = () => {
-
   return (
     <Router>
       <div className="App">
         <Layout>
           <HeaderContainer />
           <Layout>
-            <Switch>
-              <Route exact path="/" component={LandingPage} />
-              <Route path="/login" component={LoginPage} />
-              <Route path="/signup" component={SignupPage} />
-              <Route path="/checkout" component={CheckoutPage} />
-            </Switch>
-            <Footer style={{ textAlign: "center" }}>3stars Corp., 2020</Footer>
+            <Content>
+              <Switch>
+                <Route exact path="/" component={LandingPage} />
+                <Route path="/login" component={LoginPage} />
+                <Route path="/signup" component={SignupPage} />
+                <Route path="/checkout" component={CheckoutPage} />
+              </Switch>
+            </Content>
+            <Footer
+              style={{
+                // position: "fixed",
+                textAlign: "center",
+                width:'100%',
+                // left: "auto",
+                // right: "auto",
+                // bottom: 0,
+              }}
+            >
+              3stars Corp., 2020
+            </Footer>
           </Layout>
         </Layout>
       </div>

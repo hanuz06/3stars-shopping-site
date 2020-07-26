@@ -7,6 +7,8 @@ export const useStyles = createUseStyles({
     width: "100%",
     margin: "auto",
     background: { color: "#fff" },
+    // borderBottom: "1px solid grey",
+    boxShadow: "10px 0 10px -2px #888"
   },
 
   container: {
