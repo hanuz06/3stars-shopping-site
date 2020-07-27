@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useStyles } from "./style";
 import PhoneCard from "../../components/PhoneCard";
 import { phones } from "../../data/phones";
@@ -23,4 +23,4 @@ const LandingPage: React.FC = (): JSX.Element => {
   );
 };
 
-export default LandingPage;
+export default memo(LandingPage);

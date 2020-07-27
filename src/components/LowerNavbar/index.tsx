@@ -26,7 +26,7 @@ const LowerNavbar = () => {
 
   return (
     <span className="sticky-inner">
-      <Header className={classes.upperContainer}>
+      <Header className={classes.lowerContainer}>
         <div className={classes.container}>
           <NavLink exact to="/">
             <img

@@ -16,4 +16,14 @@ export const useStyles = createUseStyles({
     display: "flex",
     background: { color: "#fff" },
   },
+  backToTopButton: {
+    height: 40,
+    width: 40,
+    lineHeight: '40px',
+    borderRadius: 4,
+    backgroundColor: '#F6938E',
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: 14,
+  }
 });
