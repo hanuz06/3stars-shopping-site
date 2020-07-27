@@ -29,21 +29,22 @@ const PhoneCard: React.FC<Props<string>> = ({
 
   return (
     <Card
-      style={{ width: 300, minWidth: 250, margin:10 }}
+      style={{ width: 250, minWidth: 250, height: 400, margin: 10, padding: 0 }}
       cover={
         <img
           alt="phone"
           src={pic}
-          style={{ width: "220px", height: "250px", margin: "auto" }}
+          style={{ width: 150, height: 170, margin: "auto" }}
         />
       }
       actions={[
         <ShoppingCartOutlined key="cart" style={{ fontSize: "25px" }} />,
         <FcViewDetails style={{ fontSize: "25px" }} />,
       ]}
-      bordered
+      bordered={false}
       hoverable
       loading={false}
+      size="small"
     >
       <Meta
         title={title}

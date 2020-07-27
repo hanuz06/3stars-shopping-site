@@ -14,6 +14,7 @@ export const useStyles = createUseStyles({
   "@media (max-width: 1120px)": {
     cardContainer: {
       width: "100%",
+      marginTop: 150,
     },
   },
 });

@@ -3,6 +3,7 @@ import { createUseStyles } from "react-jss";
 export const useStyles = createUseStyles({
   upperContainer: {
     display: "flex",
+    width: "100vw",
     height: "auto",
     minHeight: 40,
     lineHeight: 2,

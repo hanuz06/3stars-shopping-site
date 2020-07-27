@@ -1,10 +1,10 @@
 import { createUseStyles } from "react-jss";
 
 export const useStyles = createUseStyles({
-  upperContainer: {
+  lowerContainer: {
     display: "flex",
     height: "auto",
-    width: "100%",
+    width: "100vw",
     margin: "auto",
     background: { color: "#fff" },
     // borderBottom: "1px solid grey",
