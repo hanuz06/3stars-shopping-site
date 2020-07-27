@@ -28,7 +28,7 @@ const LowerNavbar = () => {
     <span className="sticky-inner">
       <Header className={classes.lowerContainer}>
         <div className={classes.container}>
-          <NavLink exact to="/">
+          <NavLink exact to="/details">
             <img
               src={logo}
               alt="logo"
