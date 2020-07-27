@@ -9,11 +9,11 @@ import {
 import "./App.less";
 import LandingPage from "./LandingPage";
 import LoginRegistrationPage from "./LoginRegistrationPage";
-import SignupPage from "./SignupPage";
 import CheckoutPage from "./CheckoutPage";
 
 import { Layout } from "antd";
 import HeaderContainer from "./HeaderContainer";
+import ProductDetailsPage from "./ProductDetailsPage";
 
 const { Header, Content, Footer } = Layout;
 
@@ -21,7 +21,7 @@ const App: FC = () => {
   return (
     <Router>
       <div className="App">
-        <Layout>
+        <Layout style={{position:"relative"}}>
           {/* <Header> */}
             <HeaderContainer />
           {/* </Header> */}
@@ -29,7 +29,7 @@ const App: FC = () => {
             <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route path="/login" component={LoginRegistrationPage} />
-              <Route path="/signup" component={SignupPage} />
+              <Route path="/details" component={ProductDetailsPage} />
               <Route path="/checkout" component={CheckoutPage} />
             </Switch>
           </Content>
@@ -41,7 +41,7 @@ const App: FC = () => {
               width: "100%",
               // left: "auto",
               // right: "auto",
-              // bottom: 0,
+              bottom: 0,
             }}
           >
             3stars Corp., 2020
