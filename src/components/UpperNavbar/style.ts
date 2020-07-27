@@ -13,13 +13,14 @@ export const useStyles = createUseStyles({
   container: {
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
     width: "70%",
     height: "100%",
     margin: "auto",
     padding: {
       top: 5,
       bottom: 5,
-    },    
+    },
   },
   topLeft: {
     display: "flex",
@@ -29,13 +30,18 @@ export const useStyles = createUseStyles({
   },
   contactInfo: {
     display: "flex",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
-    minWidth: 150,
+    padding: {
+      left: 10,
+      right: 10,
+    },
+    marginRight: 20,
   },
   textStyle: {
     color: "white",
     marginLeft: 10,
+    whiteSpace: "nowrap",
   },
   topRight: {
     display: "flex",
@@ -43,7 +49,7 @@ export const useStyles = createUseStyles({
     align: { items: "center" },
     width: "45%",
     height: "100%",
-    paddingRight: 25,    
+    paddingRight: 25,
   },
   snsLinks: {
     display: "flex",
@@ -62,7 +68,7 @@ export const useStyles = createUseStyles({
     maxWidth: 200,
   },
 
-  "@media (max-width: 1120px)": {
+  "@media (max-width: 1125px)": {
     container: {
       flex: { direction: "column" },
       alignItems: "center",
@@ -83,7 +89,7 @@ export const useStyles = createUseStyles({
       flex: { direction: "column" },
       width: "80%",
       alignItems: "center",
-      paddingRight:0
+      paddingRight: 0,
     },
     contactInfo: {
       justifyContent: "center",
