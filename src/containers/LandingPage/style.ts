@@ -4,12 +4,17 @@ export const useStyles = createUseStyles({
   cardContainer: {
     display: "flex",
     flexWrap: "wrap",
-    width: "80%",
+    width: "70%",
     height: "auto",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
     margin: "auto",
     marginTop: 50,
+  },
+  "@media (max-width: 1550px)": {
+    cardContainer: {      
+      justifyContent: "center",
+    },
   },
   "@media (max-width: 1120px)": {
     cardContainer: {

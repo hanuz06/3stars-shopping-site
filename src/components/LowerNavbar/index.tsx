@@ -29,11 +29,7 @@ const LowerNavbar = () => {
       <Header className={classes.lowerContainer}>
         <div className={classes.container}>
           <NavLink exact to="/details">
-            <img
-              src={logo}
-              alt="logo"
-              style={{ width: "60px", height: "auto" }}
-            />
+            <img src={logo} alt="logo" className={classes.imageStyle} />
           </NavLink>
           <Search
             placeholder="input search text"
@@ -53,7 +49,7 @@ const LowerNavbar = () => {
             defaultSelectedKeys={["1"]}
             mode="horizontal"
             triggerSubMenuAction="hover"
-            style={{ backgroundColor: "#fff", width: 500, maxWidth: "100%" }}
+            className={classes.menuContainer}
           >
             <Menu.Item key="1">
               <NavLink exact to="/">

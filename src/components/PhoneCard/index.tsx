@@ -29,7 +29,7 @@ const PhoneCard: React.FC<Props<string>> = ({
 
   return (
     <Card
-      style={{ width: 250, minWidth: 250, height: 400, margin: 10, padding: 0 }}
+      className={classes.cardContainer}
       cover={
         <img
           alt="phone"

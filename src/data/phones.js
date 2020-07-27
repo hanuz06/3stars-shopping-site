@@ -9,7 +9,7 @@ export const phones = [
     title: "Google Pixel - Black",
     img: "./pic/product-1.png",
     price: 10,
-    company: "GOOGLE",
+    company: "Google",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -21,7 +21,7 @@ export const phones = [
     title: "Samsung S7",
     img: "./pic/product-2.png",
     price: 16,
-    company: "SAMSUNG",
+    company: "Samsung",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -33,7 +33,7 @@ export const phones = [
     title: "HTC 10 - Black",
     img: "./pic/product-3.png",
     price: 8,
-    company: "htc",
+    company: "HTC",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -45,7 +45,7 @@ export const phones = [
     title: "HTC 10 - White",
     img: "./pic/product-4.png",
     price: 18,
-    company: "htc",
+    company: "HTC",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -57,7 +57,7 @@ export const phones = [
     title: "HTC Desire 626s",
     img: "./pic/product-5.png",
     price: 24,
-    company: "htc",
+    company: "HTC",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -69,7 +69,7 @@ export const phones = [
     title: "Vintage Iphone",
     img: "./pic/product-6.png",
     price: 17,
-    company: "apple",
+    company: "Apple",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -81,7 +81,7 @@ export const phones = [
     title: "Iphone 7",
     img: "./pic/product-7.png",
     price: 30,
-    company: "apple",
+    company: "Apple",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -93,7 +93,7 @@ export const phones = [
     title: "Smashed Iphone",
     img: "./pic/product-8.png",
     price: 2,
-    company: "apple",
+    company: "Apple",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -105,7 +105,7 @@ export const phones = [
     title: "Google Pixel - Black",
     img: "./pic/product-9.png",
     price: 10,
-    company: "GOOGLE",
+    company: "Google",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -117,7 +117,7 @@ export const phones = [
     title: "Samsung S7",
     img: "./pic/product-10.png",
     price: 16,
-    company: "SAMSUNG",
+    company: "Samsung",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -129,7 +129,7 @@ export const phones = [
     title: "HTC 10 - Black",
     img: "./pic/product-11.png",
     price: 8,
-    company: "htc",
+    company: "HTC",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -141,7 +141,7 @@ export const phones = [
     title: "HTC 10 - White",
     img: "./pic/product-12.png",
     price: 18,
-    company: "htc",
+    company: "HTC",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -153,7 +153,7 @@ export const phones = [
     title: "HTC Desire 626s",
     img: "./pic/product-13.png",
     price: 24,
-    company: "htc",
+    company: "HTC",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -165,7 +165,7 @@ export const phones = [
     title: "Vintage Iphone",
     img: "./pic/product-14.png",
     price: 17,
-    company: "apple",
+    company: "Apple",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -177,7 +177,7 @@ export const phones = [
     title: "Iphone 7",
     img: "./pic/product-15.png",
     price: 30,
-    company: "apple",
+    company: "Apple",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,
@@ -189,7 +189,7 @@ export const phones = [
     title: "Smashed Iphone",
     img: "./pic/product-16.png",
     price: 2,
-    company: "apple",
+    company: "Apple",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
     inCart: false,

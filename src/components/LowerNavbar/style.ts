@@ -7,22 +7,37 @@ export const useStyles = createUseStyles({
     width: "100vw",
     margin: "auto",
     background: { color: "#fff" },
-    // borderBottom: "1px solid grey",
-    boxShadow: "10px 0 10px -2px #888"
+    padding: 0,
+    boxShadow: "10px 0 10px -2px #888",
   },
 
   container: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    width: "80%",
+    width: "70%",
     height: "100%",
     margin: "auto",
     padding: "5px",
     backgroundColor: "#fff",
   },
   searchWindow: {
-    maxWidth: 550,
+    maxWidth: 450,
+    margin: {
+      left: 5,
+      right: 5,
+    },
+  },
+  imageStyle: {
+    width: "60px",
+    height: "auto",
+  },
+  menuContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    backgroundColor: "#fff",
+    width: 500,
+    maxWidth: "100%",
   },
   "@media (max-width: 1120px)": {
     container: {

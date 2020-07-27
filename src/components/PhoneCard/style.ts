@@ -14,4 +14,11 @@ export const useStyles = createUseStyles({
       bottom: 5,
     },
   },
+  cardContainer: {
+    width: 250,
+    minWidth: 250,
+    height: 400,
+    margin: 10,
+    padding: 0,
+  },
 });
