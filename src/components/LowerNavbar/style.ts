@@ -44,5 +44,8 @@ export const useStyles = createUseStyles({
       flex: { direction: "column" },
       width: "100%",
     },
+    imageStyle: {
+      display: "none",
+    },
   },
 });

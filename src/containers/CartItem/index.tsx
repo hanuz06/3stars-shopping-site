@@ -1,23 +1,27 @@
+import React from "react";
+import { useStyles } from "./style";
+import { Descriptions } from "antd";
 
-  // myButton: {
-  //   color: 'green',
-  //   margin: {
-  //     // jss-plugin-expand gives more readable syntax
-  //     top: 5, // jss-plugin-default-unit makes this 5px
-  //     right: 0,
-  //     bottom: 0,
-  //     left: '1rem'
-  //   },
-  //   '& span': {
-  //     // jss-plugin-nested applies this to a child span
-  //     fontWeight: 'bold' // jss-plugin-camel-case turns this into 'font-weight'
-  //   }
-  // },
-  // myLabel: {
-  //   fontStyle: 'italic'
-  // }
+import pic from "../../data/pic/product-1.png";
 
-   <div
+const CartItem: React.FC = (props:any): JSX.Element => {
+  const classes = useStyles();
+
+  const phonesInCart = {
+    id: 1,
+    title: "Google Pixel - Black",
+    img: "./pic/product-1.png",
+    price: 10,
+    company: "Google",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
+    inCart: false,
+    count: 0,
+    total: 0,
+  };
+
+  return (
+    <div
       className="row my-1 text-capitalize text-center"
       style={{ marginLeft: 600, marginTop: 50 }}
     >
@@ -31,11 +35,11 @@
       </div>
       <div className="col-10 mx-auto col-lg-2">
         <span className="d-lg-none">product : </span>
-        {phonesInCart.title}
+        {props.title}
       </div>
       <div className="col-10 mx-auto col-lg-2">
         <span className="d-lg-none">price : </span>
-        {phonesInCart.price}
+        {props.price}
       </div>
       <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0">
         <div className="d-flex justify-content-center">
@@ -52,7 +56,7 @@
             >
               -
             </span>
-            <span className="btn btn-black mx-1">{phonesInCart.count}</span>
+            <span className="btn btn-black mx-1">{props.count}</span>
             <span
               className="btn btn-black mx-1"
               onClick={() => {}}
@@ -75,6 +79,10 @@
         </div>
       </div>
       <div className="col-10 mx-auto col-lg-2">
-        <strong>item total :$ {phonesInCart.total} </strong>
+        <strong>item total :$ {props.total} </strong>
       </div>
     </div>
+  );
+};
+
+export default CartItem;

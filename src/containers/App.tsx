@@ -13,7 +13,10 @@ import CheckoutPage from "./CheckoutPage";
 
 import { Layout } from "antd";
 import HeaderContainer from "./HeaderContainer";
-import ProductDetailsPage from "./ProductDetailsPage";
+// import ProductDetailsPage from "./ProductDetailsPage";
+// import CartPage from "./CartPage";
+import CartItem from "./CartItem";
+import CartList from "./CartList";
 
 const { Header, Content, Footer } = Layout;
 
@@ -29,7 +32,7 @@ const App: FC = () => {
             <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route path="/login" component={LoginRegistrationPage} />
-              <Route path="/details" component={ProductDetailsPage} />
+              <Route path="/cart" component={CartList} />
               <Route path="/checkout" component={CheckoutPage} />
             </Switch>
           </Content>
