@@ -5,15 +5,20 @@ export const useStyles = createUseStyles({
     display: "flex",
   },
   columnStyle: {
-    padding: 10,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 180,
+    padding: 5,
     margin: {
-      left: 15,
-      right: 15,
+      left: 5,
+      right: 5,
+      bottom: 15,
     },
-    border: "1px solid red",
+    // border: "1px solid green",
   },
 
-  "@media (max-width: 988px)": {
+  "@media (max-width: 1080px)": {
     container: {
       display: "none",
     },

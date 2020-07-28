@@ -3,54 +3,62 @@ import { createUseStyles } from "react-jss";
 export const useStyles = createUseStyles({
   container: {
     display: "flex",
-    width: "100vw",
-    height: "75vh",
-    maxHeight: "auto",
+    justifyContent: "space-between",
+    alignItems: "center",
+    margin: {
+      bottom: 10,
+    },
+  },
+  infoContainer: {
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 25,
-  },
-  innerContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    padding: 20,
-    border: "1px solid #D3D3D3",
+    width: 180,
+    maxWidth: "100%",
+    padding: 10,
     margin: {
       left: 5,
       right: 5,
     },
   },
-  wrapContainer: {
+  imageStyle: {
+    width: "8rem",
+    height: "8rem",
+  },
+  counterContainer: {
     display: "flex",
-    flexWrap: "wrap",
-    alignItems: "flex-start",
+    width: 110,
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  buttonStyle: {
+    display: "flex",
     justifyContent: "center",
+    alignItems: "center",
+    background: "transparent",
   },
-  "@media (max-width: 1120px)": {
+  hide: {
+    display: "none",
+  },
+  trashBinIconStyle: {
+    cursor: "pointer",
+    color: "orange",
+  },
+  "@media (max-width: 1080px)": {
     container: {
-      marginTop: 120,
+      flexDirection: "column",
     },
-  },
-  "@media (max-width: 750px)": {
-    container: {
-      marginTop: 250,
+    hide: {
+      display: "block",
+      marginRight: 5,
     },
-    wrapContainer: {
-      alignItems: "center",
+    imageStyle: {
+      width: "15rem",
+      height: "15rem",
     },
-    innerContainer: {
-      margin: {
-        left: "auto",
-        right: "auto",
-        bottom: 10,
-      },
-    },
-  },
-  "@media (max-width: 575px)": {
-    wrapContainer: {
-      marginTop: 300,
+    infoContainer: {
+      width: "100%",
+      justifyContent: "flex-start",
     },
   },
 });

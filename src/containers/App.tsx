@@ -17,6 +17,7 @@ import HeaderContainer from "./HeaderContainer";
 // import CartPage from "./CartPage";
 import CartItem from "./CartItem";
 import CartList from "./CartList";
+import CartPage from "./CartPage";
 
 const { Header, Content, Footer } = Layout;
 
@@ -32,12 +33,12 @@ const App: FC = () => {
             <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route path="/login" component={LoginRegistrationPage} />
-              <Route path="/cart" component={CartList} />
+              <Route path="/cart" component={CartPage} />
               <Route path="/checkout" component={CheckoutPage} />
             </Switch>
           </Content>
 
-          <Footer
+          {/* <Footer
             style={{
               // position: "fixed",
               textAlign: "center",
@@ -48,7 +49,7 @@ const App: FC = () => {
             }}
           >
             3stars Corp., 2020
-          </Footer>
+          </Footer> */}
         </Layout>
       </div>
     </Router>
