@@ -28,7 +28,7 @@ const LowerNavbar = () => {
     <span className="sticky-inner">
       <Header className={classes.lowerContainer}>
         <div className={classes.container}>
-          <NavLink exact to="/details">
+          <NavLink exact to="/">
             <img src={logo} alt="logo" className={classes.imageStyle} />
           </NavLink>
           <Search
@@ -56,17 +56,22 @@ const LowerNavbar = () => {
                 <Text>HOME</Text>
               </NavLink>
             </Menu.Item>
-
             <SubMenu key="sub1" icon={<AppstoreOutlined />} title="SHOP">
-              <Menu.Item key="2">GADGETS</Menu.Item>
+              <Menu.Item key="2">
+                <NavLink exact to="/">
+                  GADGETS
+                </NavLink>
+              </Menu.Item>
               <Menu.Item key="3">ACCESSORIES</Menu.Item>
             </SubMenu>
-
             <SubMenu key="sub2" icon={<UserOutlined />} title="MY ACCOUNT">
-              <Menu.Item key="4">CART</Menu.Item>
+              <Menu.Item key="4">
+                <NavLink exact to="/cart">
+                  CART
+                </NavLink>
+              </Menu.Item>
               <Menu.Item key="5">CHECKOUT</Menu.Item>
             </SubMenu>
-
             <Menu.Item key="6">
               <NavLink to="#">
                 <Text>CONTACT US</Text>

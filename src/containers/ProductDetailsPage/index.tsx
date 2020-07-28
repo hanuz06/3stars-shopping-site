@@ -22,7 +22,7 @@ const phone = {
 const ProductDetailsPage: React.FC = (props: any): JSX.Element => {
   const classes = useStyles();
   return (
-    <div className={classes.container}>
+    <div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ textAlign: "center" }}>
           <Title level={3}>{phone.title}</Title>

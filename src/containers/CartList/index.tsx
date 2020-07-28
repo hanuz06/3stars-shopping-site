@@ -1,13 +1,8 @@
 import React from "react";
 import { useStyles } from "./style";
-import { Typography } from "antd";
-import CartColumns from "../../components/CartColumns";
-import CartList from "../CartList";
-import CartTotal from "../CartTotal";
+import CartItem from "../CartItem";
 
-const { Title } = Typography;
-
-const CartPage: React.FC = (): JSX.Element => {
+const CartList: React.FC = (phones:any): JSX.Element => {
   const classes = useStyles();
 
   const phonesInCart: any = [
@@ -24,7 +19,7 @@ const CartPage: React.FC = (): JSX.Element => {
       total: 0,
     },
     {
-      id: 1,
+      id: 2,
       title: "Google Pixel - Black",
       img: "./pic/product-1.png",
       price: 10,
@@ -36,17 +31,13 @@ const CartPage: React.FC = (): JSX.Element => {
       total: 0,
     },
   ];
-
   return (
-    <div className={classes.container}>
-      <div className={classes.innerContainer}>
-        <Title level={1}>Your cart</Title>
-        <CartColumns />
-        <CartList />
-        <CartTotal/>
-      </div>
-    </div>
+    <>
+      {phonesInCart.map((phone: any) => (
+        <CartItem key={phone.id} {...phone} />
+      ))}
+    </>
   );
 };
 
-export default CartPage;
+export default CartList;
