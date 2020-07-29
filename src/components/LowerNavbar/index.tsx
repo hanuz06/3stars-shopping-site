@@ -73,7 +73,7 @@ const LowerNavbar = () => {
               <Menu.Item key="5">CHECKOUT</Menu.Item>
             </SubMenu>
             <Menu.Item key="6">
-              <NavLink to="#">
+              <NavLink to="/contact">
                 <Text>CONTACT US</Text>
               </NavLink>
             </Menu.Item>

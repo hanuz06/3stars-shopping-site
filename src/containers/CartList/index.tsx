@@ -1,6 +1,6 @@
 import React from "react";
 import { useStyles } from "./style";
-import CartItem from "../CartItem";
+import CartItem from "../../components/CartItem";
 
 const CartList: React.FC = (phones:any): JSX.Element => {
   const classes = useStyles();

@@ -1,7 +1,6 @@
 import React from "react";
 import { useStyles } from "./style";
 import { Button, Typography } from "antd";
-// import paypal from "../../images/paypal.png";
 import { FaCcPaypal } from "react-icons/fa";
 
 const { Title, Text } = Typography;
@@ -25,12 +24,12 @@ const CartTotal: React.FC = (phones: any): JSX.Element => {
           </div>
           <div className={classes.totalStyle}>
             <Title level={4}>
-              <span>TAX:</span> <strong>$80</strong>
+              <span>TAX:</span> <strong>$8</strong>
             </Title>
           </div>
           <div className={classes.totalStyle}>
             <Title level={4}>
-              <span>TOTAL:</span> <strong>$80</strong>
+              <span>TOTAL:</span> <strong>$88</strong>
             </Title>
           </div>
           <Button
