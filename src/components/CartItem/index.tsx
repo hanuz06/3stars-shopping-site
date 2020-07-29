@@ -45,7 +45,7 @@ const CartItem: React.FC = (props: any): JSX.Element => {
           </Text>
         </span>
         <Text strong style={{ fontSize: "1rem" }}>
-          {props.price}
+          ${props.price}
         </Text>
       </div>
       <div className={classes.infoContainer}>

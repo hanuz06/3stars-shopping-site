@@ -4,8 +4,10 @@ export const useStyles = createUseStyles({
   container: {
     display: "flex",
     maxHeight: "auto",
-    justifyContent: "flex-end",
-    width: "100%",  
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    marginTop: 30,
   },
   innerContainer: {
     display: "flex",
@@ -18,8 +20,10 @@ export const useStyles = createUseStyles({
       right: 5,
     },
   },
-  
+
   "@media (max-width: 1080px)": {
-    
+    container: {
+      marginTop: 55,
+    },
   },
 });
