@@ -4,10 +4,7 @@ export const useStyles = createUseStyles({
   container: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center",
-    margin: {
-      bottom: 10,
-    },
+    alignItems: "center",    
   },
   infoContainer: {
     display: "flex",
@@ -15,7 +12,7 @@ export const useStyles = createUseStyles({
     alignItems: "center",
     width: 180,
     maxWidth: "100%",
-    padding: 10,
+    padding: 5,
     margin: {
       left: 5,
       right: 5,
