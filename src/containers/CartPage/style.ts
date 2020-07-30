@@ -4,8 +4,8 @@ export const useStyles = createUseStyles({
   container: {
     display: "flex",
     width: "100vw",
-    height: "75vh",
-    maxHeight: "auto",
+    minHeight: "75vh",
+    // height: "auto",
     justifyContent: "center",
     marginTop: 80,
   },

@@ -22,7 +22,7 @@ const phone = {
 const ProductDetailsPage: React.FC = (props: any): JSX.Element => {
   const classes = useStyles();
   return (
-    <div>
+    <section className={classes.container}>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ textAlign: "center" }}>
           <Title level={3}>{phone.title}</Title>
@@ -50,13 +50,7 @@ const ProductDetailsPage: React.FC = (props: any): JSX.Element => {
                 <Button
                   size="large"
                   type="primary"
-                  style={{
-                    borderRadius: 10,
-                    marginRight: 5,
-                    marginLeft:5,
-                    marginBottom: 5,
-                    width: 160,
-                  }}
+                  className={classes.backToProductsButton}
                 >
                   Back to products
                 </Button>
@@ -65,11 +59,7 @@ const ProductDetailsPage: React.FC = (props: any): JSX.Element => {
                 <Button
                   size="large"
                   type="default"
-                  style={{
-                    borderRadius: 10,
-                    width: 160,
-                    maxWidth: 160,
-                  }}
+                  className={classes.addToCartButton}
                 >
                   Add to cart
                 </Button>
@@ -78,7 +68,7 @@ const ProductDetailsPage: React.FC = (props: any): JSX.Element => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

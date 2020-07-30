@@ -5,8 +5,7 @@ export const useStyles = createUseStyles({
     display: "flex",
     width: "100vw",
     maxWidth: "100%",
-    height: "75vh",
-    maxHeight: "auto",
+    minHeight: "75vh",    
     justifyContent: "center",
     alignItems: "center",
     marginTop: 30,
@@ -22,23 +21,32 @@ export const useStyles = createUseStyles({
     alignItems: "center",
     padding: 5,
   },
-  buttonContainer: {
-    display: "flex",
-  },
   image: {
     display: "block",
     maxWidth: 350,
     height: "auto",
   },
+  buttonContainer: {
+    display: "flex",
+  },
+  backToProductsButton: {
+    borderRadius: 10,
+    marginRight: 5,
+    marginLeft: 5,
+    marginBottom: 5,
+    width: 160,
+  },
+  addToCartButton: {
+    borderRadius: 10,
+    width: 160,
+    maxWidth: 160,
+  },
   "@media (max-width: 1121px)": {
     container: {
-      marginTop: 200,
+      marginTop: 100,
     },
   },
   "@media (max-width: 755px)": {
-    container: {
-      marginTop: 400,
-    },
     wrapperContainer: {
       flexDirection: "column",
       justifyContent: "center",
@@ -57,7 +65,7 @@ export const useStyles = createUseStyles({
   },
   "@media (max-width: 350px)": {
     container: {
-      marginTop: 300,
+      marginTop: 150,
     },
     image: {
       width: 200,

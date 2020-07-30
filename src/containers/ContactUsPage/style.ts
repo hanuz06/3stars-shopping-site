@@ -3,27 +3,52 @@ import { createUseStyles } from "react-jss";
 export const useStyles = createUseStyles({
   container: {
     display: "flex",
-    maxHeight: "auto",
-    justifyContent: "center",
+    flexDirection: "column",
     alignItems: "center",
-    width: "100%",
-    marginTop: 30,
+    minWidth: "100vw",
+    minHeight: "80vh",
+    marginTop: 33,
   },
   innerContainer: {
     display: "flex",
-    flexDirection: "column",
+    // justifyContent: "space-between",
+    alignItems: "flex-start",
+    width: "70vw",
+    padding: 20,
+    // border: "1px solid red",
+  },
+  leftContainer: {
+    display: "flex",
     justifyContent: "center",
-    alignItems: "center",
-    padding: 10,
-    margin: {
-      left: 5,
-      right: 5,
+    alignItems: "flex-start",
+    width: "50%",
+    // border: "1px dashed green",
+  },
+  formContainer: {
+    width: "50%",
+    // border: "1px solid blue",
+  },
+  "@media (max-width: 1120px)": {
+    container: {
+      marginTop: 65,
+    },
+    innerContainer: {
+      flexDirection: "column",
+      justifyContent: "center",
+    },
+    leftContainer: {
+      width: "100%",
+      marginRight: 0,
+    },
+    formContainer: {
+      display: "flex",    
+      width: "100%",
     },
   },
-
-  "@media (max-width: 1080px)": {
-    container: {
-      marginTop: 55,
+  "@media (max-width: 577px)": {
+    innerContainer: {
+      padding: 0,
+      paddingTop: 20,
     },
   },
 });

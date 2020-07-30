@@ -8,7 +8,7 @@ export const useStyles = createUseStyles({
     margin: "auto",
     background: { color: "#fff" },
     padding: 0,
-    boxShadow: "10px 0 10px -2px #888",
+    boxShadow: "10px 0 12px -2px #888",
   },
 
   container: {

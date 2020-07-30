@@ -38,14 +38,14 @@ const CartPage: React.FC = (): JSX.Element => {
   ];
 
   return (
-    <div className={classes.container}>
+    <section className={classes.container}>
       <div className={classes.innerContainer}>
         <Title level={1}>Your cart</Title>
         <CartColumns />
         <CartList />
         <CartTotal/>
       </div>
-    </div>
+    </section>
   );
 };
 
