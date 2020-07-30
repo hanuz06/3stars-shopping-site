@@ -82,18 +82,23 @@ export const useStyles = createUseStyles({
   },
   "@media (max-width: 775px)": {
     topLeft: {
-      flex: { direction: "column" },
-      alignItems: "center",
+      // flex: { direction: "column" },
+      // alignItems: "center",
+      display: "none",
     },
     topRight: {
-      flex: { direction: "column" },
       width: "80%",
       alignItems: "center",
+      justifyContent: "center",
       paddingRight: 0,
     },
     contactInfo: {
-      display:'none',
       justifyContent: "center",
+    },
+  },
+  "@media (max-width: 455px)": {
+    topRight: {
+      flex: { direction: "column" },
     },
   },
 });
