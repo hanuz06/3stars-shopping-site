@@ -3,6 +3,7 @@ import { createUseStyles } from "react-jss";
 export const useStyles = createUseStyles({
   container: {
     display: "flex",
+    flexDirection: "column",
     width: "100vw",
     minHeight: "75vh",
     maxHeight: "auto",
@@ -28,15 +29,15 @@ export const useStyles = createUseStyles({
     alignItems: "flex-start",
     justifyContent: "center",
   },
+  headerStyle: {
+    paddingTop: "0.5em",
+  },
   "@media (max-width: 1120px)": {
     container: {
-      marginTop: 120,
+      marginTop: 80,
     },
   },
   "@media (max-width: 750px)": {
-    container: {
-      marginTop: 250,
-    },
     wrapContainer: {
       alignItems: "center",
     },
@@ -46,11 +47,6 @@ export const useStyles = createUseStyles({
         right: "auto",
         bottom: 10,
       },
-    },
-  },
-  "@media (max-width: 575px)": {
-    wrapContainer: {
-      marginTop: 300,
     },
   },
 });
