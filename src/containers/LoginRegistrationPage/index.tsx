@@ -11,14 +11,19 @@ const LoginRegistrationPage: React.FC = (): JSX.Element => {
 
   return (
     <section className={classes.container}>
-      <div className={classes.wrapContainer}>
-        <div className={classes.innerContainer}>
-          <Title level={4}>Login to account</Title>
-          <LoginForm />
-        </div>
-        <div className={classes.innerContainer}>
-          <Title level={4}>Register account</Title>
-          <RegistrationForm />
+      <div className={classes.headerStyle}>
+        <Title level={2}>My account</Title>
+      </div>
+      <div>
+        <div className={classes.wrapContainer}>
+          <div className={classes.innerContainer}>
+            <Title level={4}>Login to account</Title>
+            <LoginForm />
+          </div>
+          <div className={classes.innerContainer}>
+            <Title level={4}>Register account</Title>
+            <RegistrationForm />
+          </div>
         </div>
       </div>
     </section>
