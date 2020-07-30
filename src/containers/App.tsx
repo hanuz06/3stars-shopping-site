@@ -15,6 +15,7 @@ import { Layout } from "antd";
 import HeaderContainer from "./HeaderContainer";
 import CartPage from "./CartPage";
 import ContactUsPage from "./ContactUsPage";
+import ProductDetailsPage from "./ProductDetailsPage";
 
 const { Header, Content, Footer } = Layout;
 
@@ -22,9 +23,9 @@ const App: FC = () => {
   return (
     <Router>
       <div className="App">
-        <Layout style={{position:"relative"}}>
+        <Layout style={{ position: "relative" }}>
           {/* <Header> */}
-            <HeaderContainer />
+          <HeaderContainer />
           {/* </Header> */}
           <Content>
             <Switch>
@@ -33,21 +34,18 @@ const App: FC = () => {
               <Route path="/cart" component={CartPage} />
               <Route path="/contact" component={ContactUsPage} />
               <Route path="/checkout" component={CheckoutPage} />
+              <Route path="/details" component={ProductDetailsPage} />
             </Switch>
           </Content>
-
-          {/* <Footer
+          <Footer
             style={{
-              // position: "fixed",
               textAlign: "center",
-              width: "100%",
-              // left: "auto",
-              // right: "auto",
-              bottom: 0,
+              width: "100vw",
+              padding: 10,
             }}
           >
             3stars Corp., 2020
-          </Footer> */}
+          </Footer>
         </Layout>
       </div>
     </Router>

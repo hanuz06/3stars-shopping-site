@@ -92,6 +92,7 @@ export const useStyles = createUseStyles({
       paddingRight: 0,
     },
     contactInfo: {
+      display:'none',
       justifyContent: "center",
     },
   },

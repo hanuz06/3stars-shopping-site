@@ -6,8 +6,7 @@ jss.setup(preset());
 
 export const useStyles = createUseStyles({
   upperContainer: {
-    display: "flex",
-    height: "auto",
+    display: "flex",    
     minHeight: 40,
     lineHeight: 2,
     background: { color: "black" },
@@ -21,7 +20,7 @@ export const useStyles = createUseStyles({
     width: 40,
     lineHeight: '40px',
     borderRadius: 4,
-    backgroundColor: '#F6938E',
+    backgroundColor: '#F36161',
     color: '#fff',
     textAlign: 'center',
     fontSize: 14,

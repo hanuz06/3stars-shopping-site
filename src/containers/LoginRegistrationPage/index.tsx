@@ -10,7 +10,7 @@ const LoginRegistrationPage: React.FC = (): JSX.Element => {
   const classes = useStyles();
 
   return (
-    <div className={classes.container}>
+    <section className={classes.container}>
       <div className={classes.wrapContainer}>
         <div className={classes.innerContainer}>
           <Title level={4}>Login</Title>
@@ -21,7 +21,7 @@ const LoginRegistrationPage: React.FC = (): JSX.Element => {
           <RegistrationForm />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

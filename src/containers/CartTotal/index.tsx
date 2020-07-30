@@ -12,7 +12,7 @@ const CartTotal: React.FC = (phones: any): JSX.Element => {
     <div className={classes.container}>
       <div className={classes.innerContainer}>
         <Button type="default" size="large">
-          <Title level={4} style={{ color: "#F6938E" }}>
+          <Title level={4} style={{ color: "#F36161" }}>
             CLEAR CART
           </Title>
         </Button>

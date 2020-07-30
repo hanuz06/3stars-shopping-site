@@ -7,7 +7,7 @@ const LandingPage: React.FC = (): JSX.Element => {
   const classes = useStyles();
 
   return (
-    <div className={classes.cardContainer}>
+    <section className={classes.cardContainer}>
       {phones.map((phone: any) => (
         <PhoneCard
           key={phone.id}
@@ -19,7 +19,7 @@ const LandingPage: React.FC = (): JSX.Element => {
           info={phone.info}
         />
       ))}
-    </div>
+    </section>
   );
 };
 
