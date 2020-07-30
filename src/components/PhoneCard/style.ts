@@ -15,10 +15,10 @@ export const useStyles = createUseStyles({
     },
   },
   cardContainer: {
-    width: 250,
-    minWidth: 250,
+    // width: 257,
+    maxWidth: 257,
     height: 400,
-    margin: 10,
+    margin: 5,
     padding: 0,
   },
 });

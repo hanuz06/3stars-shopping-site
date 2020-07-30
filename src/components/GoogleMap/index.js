@@ -6,7 +6,7 @@ const GoogleMaps = ({ latitude, longitude }) => {
     let marker = new maps.Marker({
       position: { lat: latitude, lng: longitude },
       map,
-      title: "Hello World!",
+      title: "Our main office is here",
     });
     return marker;
   };
