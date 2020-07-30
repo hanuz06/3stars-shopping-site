@@ -42,22 +42,22 @@ const UpperNavbar = () => {
           <div className={classes.snsLinks}>
             <Link href="https://facebook.com" target="_blank">
               <Tooltip placement="bottom" title="Facebook" color="#808080">
-                <FaFacebookF color="white" />
+                <FaFacebookF color="white" className={classes.iconStyle} />
               </Tooltip>
             </Link>
             <Link href="https://twitter.com" target="_blank">
               <Tooltip placement="bottom" title="Twitter" color="#808080">
-                <FaTwitter color="white" />
+                <FaTwitter color="white" className={classes.iconStyle} />
               </Tooltip>
             </Link>
             <Link href="https://youtube.com" target="_blank">
               <Tooltip placement="bottom" title="Youtube" color="#808080">
-                <RiYoutubeLine color="white" />
+                <RiYoutubeLine color="white" className={classes.iconStyle} />
               </Tooltip>
             </Link>
             <Link href="https://instagram.com" target="_blank">
               <Tooltip placement="bottom" title="Instagram" color="#808080">
-                <RiInstagramLine color="white" />
+                <RiInstagramLine color="white" className={classes.iconStyle} />
               </Tooltip>
             </Link>
           </div>
@@ -77,7 +77,11 @@ const UpperNavbar = () => {
             </NavLink>
           </div>
           <Badge color="magenta" dot>
-            <Tooltip placement="bottom" title="Your items in cart" color="#808080">
+            <Tooltip
+              placement="bottom"
+              title="Your items in cart"
+              color="#808080"
+            >
               <FaShoppingCart color="white" />
             </Tooltip>
           </Badge>

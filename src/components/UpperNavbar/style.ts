@@ -54,10 +54,10 @@ export const useStyles = createUseStyles({
   snsLinks: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     height: "100%",
     width: 100,
-    maxWidth: 120,
+    // maxWidth: 120,
   },
   loginSignupLink: {
     display: "flex",
@@ -80,6 +80,7 @@ export const useStyles = createUseStyles({
       width: 260,
     },
   },
+  iconStyle: {},
   "@media (max-width: 775px)": {
     topLeft: {
       // flex: { direction: "column" },
@@ -99,6 +100,16 @@ export const useStyles = createUseStyles({
   "@media (max-width: 455px)": {
     topRight: {
       flex: { direction: "column" },
+    },
+    snsLinks: {
+      width: 150,
+    },
+    iconStyle: {
+      width: 25,
+      height: 25,
+    },
+    textStyle: {
+      fontSize: "1.2em",
     },
   },
 });
