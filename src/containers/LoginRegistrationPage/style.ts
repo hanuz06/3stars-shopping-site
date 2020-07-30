@@ -4,7 +4,7 @@ export const useStyles = createUseStyles({
   container: {
     display: "flex",
     width: "100vw",
-    height: "75vh",
+    minHeight: "75vh",
     maxHeight: "auto",
     justifyContent: "center",
     alignItems: "center",
