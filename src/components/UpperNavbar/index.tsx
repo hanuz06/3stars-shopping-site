@@ -9,7 +9,7 @@ import {
   FaShoppingCart,
 } from "react-icons/fa";
 import { MdMailOutline } from "react-icons/md";
-import { RiYoutubeLine, RiInstagramLine, RiLoginBoxLine } from "react-icons/ri";
+import { RiYoutubeLine, RiInstagramLine } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import { Badge, Tooltip } from "antd";
 import { LoginOutlined, LogoutOutlined } from "@ant-design/icons";
@@ -62,21 +62,26 @@ const UpperNavbar = () => {
             </Link>
           </div>
 
-          <div className={classes.loginSignupLink}>
-            {/* <RiLoginBoxLine color="white" /> */}
+          <div className={classes.loginSignupLink}>            
             <LoginOutlined style={{ color: "white" }} />
             <NavLink exact to="/login">
               <Text className={classes.textStyle}>Login / Register</Text>
             </NavLink>
           </div>
-          <div className={classes.loginSignupLink} hidden>
-            {/* <RiLoginBoxLine color="white" /> */}
+          <div className={classes.loginSignupLink} hidden>            
             <LogoutOutlined style={{ color: "white" }} />
             <NavLink exact to="/login">
               <Text className={classes.textStyle}>Logout</Text>
             </NavLink>
           </div>
-          <Badge color="magenta" dot>
+          <Badge
+            count={2}          
+            offset={[6, -2]}
+            style={{
+              backgroundColor: "transparent",
+              borderColor: "transparent",
+            }}
+          >
             <Tooltip
               placement="bottom"
               title="Your items in cart"

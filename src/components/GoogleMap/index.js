@@ -15,7 +15,7 @@ const GoogleMaps = ({ latitude, longitude }) => {
     <div
       style={{
         height: "50vh",
-        minWidth: "100vw",
+        width: "100%",
         boxShadow: "10px 0 10px -2px #888",
       }}
     >

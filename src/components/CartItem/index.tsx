@@ -30,29 +30,19 @@ const CartItem: React.FC = (props: any): JSX.Element => {
       </div>
       <div className={classes.infoContainer}>
         <span className={classes.hide}>
-          <Text strong style={{ fontSize: "1rem" }}>
-            Product :
-          </Text>
+          <Text strong>Product :</Text>
         </span>
-        <Text strong style={{ fontSize: "1rem" }}>
-          {props.title}
-        </Text>
+        <Text strong>{props.title}</Text>
       </div>
       <div className={classes.infoContainer}>
         <span className={classes.hide}>
-          <Text strong style={{ fontSize: "1rem" }}>
-            Price :{" "}
-          </Text>
+          <Text strong>Price : </Text>
         </span>
-        <Text strong style={{ fontSize: "1rem" }}>
-          ${props.price}
-        </Text>
+        <Text strong>${props.price}</Text>
       </div>
       <div className={classes.infoContainer}>
         <span className={classes.hide}>
-          <Text strong style={{ fontSize: "1rem" }}>
-            Quantity :{" "}
-          </Text>
+          <Text strong>Quantity : </Text>
         </span>{" "}
         <div className={classes.counterContainer}>
           <Button
@@ -63,9 +53,7 @@ const CartItem: React.FC = (props: any): JSX.Element => {
           >
             <FaMinus style={{ color: "black" }} />
           </Button>
-          <Text strong style={{ fontSize: "1rem" }}>
-            {count}
-          </Text>
+          <Text strong>{count}</Text>
           <Button
             type="default"
             onClick={() => setCount(count + 1)}
@@ -79,9 +67,7 @@ const CartItem: React.FC = (props: any): JSX.Element => {
       {/* */}
       <div className={classes.infoContainer}>
         <span className={classes.hide}>
-          <Text strong style={{ fontSize: "1rem" }}>
-            Remove :{" "}
-          </Text>
+          <Text strong>Remove : </Text>
         </span>
         <div className={classes.trashBinIconStyle} onClick={() => {}}>
           <FaTrash size={20} />
@@ -89,13 +75,9 @@ const CartItem: React.FC = (props: any): JSX.Element => {
       </div>
       <div className={classes.infoContainer}>
         <Text strong className={classes.hide}>
-          <Text strong style={{ fontSize: "1rem" }}>
-            Item Total :
-          </Text>
+          <Text strong>Item Total :</Text>
         </Text>
-        <Text strong style={{ fontSize: "1rem" }}>
-          {props.total}
-        </Text>
+        <Text strong>{props.total}</Text>
       </div>
     </div>
   );

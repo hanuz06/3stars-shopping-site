@@ -42,7 +42,7 @@ const App: FC = () => {
     >
       <Router>
         <div className="App">
-          <Layout style={{ position: "relative" }}>
+          <Layout>
             {/* <Header> */}
             <HeaderContainer />
             {/* </Header> */}
@@ -59,7 +59,7 @@ const App: FC = () => {
             <Footer
               style={{
                 textAlign: "center",
-                width: "100vw",
+                width: "100%",
                 padding: 10,
               }}
             >

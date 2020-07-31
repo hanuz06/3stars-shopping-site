@@ -3,7 +3,7 @@ import { createUseStyles } from "react-jss";
 export const useStyles = createUseStyles({
   upperContainer: {
     display: "flex",
-    width: "100vw",
+    width: "100%",
     height: "auto",
     minHeight: 40,
     lineHeight: 2,
@@ -68,7 +68,7 @@ export const useStyles = createUseStyles({
     maxWidth: 200,
   },
 
-  "@media (max-width: 1125px)": {
+  "@media (max-width: 1188px)": {
     container: {
       flex: { direction: "column" },
       alignItems: "center",
@@ -109,7 +109,7 @@ export const useStyles = createUseStyles({
       height: 25,
     },
     textStyle: {
-      fontSize: "1.2em",
+      // fontSize: "1.2em",
     },
   },
 });

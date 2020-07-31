@@ -4,7 +4,7 @@ export const useStyles = createUseStyles({
   lowerContainer: {
     display: "flex",
     height: "auto",
-    width: "100vw",
+    width: "100%",
     margin: "auto",
     background: { color: "#fff" },
     padding: 0,

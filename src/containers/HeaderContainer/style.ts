@@ -22,7 +22,6 @@ export const useStyles = createUseStyles({
     borderRadius: 4,
     backgroundColor: '#F36161',
     color: '#fff',
-    textAlign: 'center',
-    fontSize: 14,
+    textAlign: 'center',  
   }
 });
