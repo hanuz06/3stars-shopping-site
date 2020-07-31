@@ -16,7 +16,7 @@ const HeaderContainer = () => {
   const isSticky: boolean = useStickyNavBar(ref);
 
   return (
-    <div>
+    <header>
       <UpperNavbar />
       <div className={`sticky-wrapper ${isSticky ? " sticky" : ""}`} ref={ref}>
         <LowerNavbar />
@@ -24,7 +24,7 @@ const HeaderContainer = () => {
           <div className={classes.backToTopButton}>UP</div>
         </BackTop>
       </div>
-    </div>
+    </header>
   );
 };
 

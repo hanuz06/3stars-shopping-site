@@ -9,16 +9,20 @@ export const useStyles = createUseStyles({
   },
   textContainer: {
     width: "100%",
-    padding: {
+    margin: {
       top: 5,
       bottom: 5,
     },
   },
   cardContainer: {
-    // width: 257,
     maxWidth: 257,
     height: 400,
-    margin: 5,
+    margin: {
+      left: 5,
+      right: 5,
+      top: 12,
+      bottom: 12,
+    },
     padding: 0,
   },
 });
