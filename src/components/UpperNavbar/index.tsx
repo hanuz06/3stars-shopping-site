@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Typography, Layout } from "antd";
 import { useStyles } from "./style";
 import { GoLocation } from "react-icons/go";
@@ -13,12 +13,26 @@ import { RiYoutubeLine, RiInstagramLine } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import { Badge, Tooltip } from "antd";
 import { LoginOutlined, LogoutOutlined } from "@ant-design/icons";
+import { useSelector, useDispatch } from "react-redux";
+import { signOut } from "../../store/actions/authActions";
 
 const { Text, Link } = Typography;
 const { Header } = Layout;
 
-const UpperNavbar = () => {
+const UpperNavbar: React.FC = (): JSX.Element => {
+  const [token, setToken] = useState<string | null>(null);
   const classes = useStyles();
+
+  const dispatch = useDispatch();
+
+  const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn);
+
+  let userToken = sessionStorage.getItem("userToken");
+
+  const logOut = () => {
+  
+    dispatch(signOut());
+  };
 
   return (
     <Header className={classes.upperContainer}>
@@ -61,21 +75,23 @@ const UpperNavbar = () => {
               </Tooltip>
             </Link>
           </div>
-
-          <div className={classes.loginSignupLink}>            
-            <LoginOutlined style={{ color: "white" }} />
-            <NavLink exact to="/login">
-              <Text className={classes.textStyle}>Login / Register</Text>
-            </NavLink>
-          </div>
-          <div className={classes.loginSignupLink} hidden>            
-            <LogoutOutlined style={{ color: "white" }} />
-            <NavLink exact to="/login">
-              <Text className={classes.textStyle}>Logout</Text>
-            </NavLink>
-          </div>
+          {isLoggedIn && userToken ? (
+            <div onClick={logOut} className={classes.loginSignupLink}>
+              <LogoutOutlined style={{ color: "white" }} />
+              <NavLink exact to="/">
+                <Text className={classes.textStyle}>Logout</Text>
+              </NavLink>
+            </div>
+          ) : (
+            <div className={classes.loginSignupLink}>
+              <LoginOutlined style={{ color: "white" }} />
+              <NavLink exact to="/authentication">
+                <Text className={classes.textStyle}>Login / Register</Text>
+              </NavLink>
+            </div>
+          )}
           <Badge
-            count={2}          
+            count={2}
             offset={[6, -2]}
             style={{
               backgroundColor: "transparent",

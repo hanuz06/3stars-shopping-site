@@ -1,10 +1,10 @@
 import React, { memo, useEffect } from "react";
 import { useStyles } from "./style";
 import PhoneCard from "../../components/PhoneCard";
-import { phones } from "../../data/phones";
+// import { phones } from "../../data/phones";
+import { getProductsList } from "../../store/actions/productsActions";
 import { useSelector, useDispatch } from "react-redux";
-import * as productsActions from "../../redux/actions/productsActions";
-import { getProductsList } from "../../redux/actions/productsActions";
+import { firestoreConnect } from "react-redux-firebase";
 
 const LandingPage: React.FC = (): JSX.Element => {
   const classes = useStyles();

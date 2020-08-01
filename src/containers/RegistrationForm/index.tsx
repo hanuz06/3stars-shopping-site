@@ -1,4 +1,4 @@
- import React, { useState } from "react";
+import React, { useState } from "react";
 import {
   Form,
   Input,
@@ -11,12 +11,14 @@ import {
   Button,
   AutoComplete,
 } from "antd";
+import { useSelector, useDispatch } from "react-redux";
+import { signUp } from "../../store/actions/authActions";
 
 const formItemLayout = {
   labelCol: {
     xs: { span: 26 },
     sm: { span: 10 },
-  }, 
+  },
   wrapperCol: {
     xs: { span: 24 },
     sm: { span: 16 },
@@ -38,8 +40,11 @@ const tailFormItemLayout = {
 const RegistrationForm: React.FC = (): JSX.Element => {
   const [form] = Form.useForm();
 
+  const dispatch = useDispatch();
+
   const onFinish = (values: any) => {
-    console.log("Received values of form: ", values);
+    // console.log("Received values of form: ", values);
+    dispatch(signUp(values));
   };
 
   const onReset = () => {
@@ -55,9 +60,17 @@ const RegistrationForm: React.FC = (): JSX.Element => {
       scrollToFirstError
     >
       <Form.Item
-        name={["user", "name"]}
-        label="Name"
-        rules={[{ required: true, message: "Please input your name" }]}
+        name={["user", "firstName"]}
+        label="First Name"
+        rules={[{ required: true, message: "Please input your first name" }]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        name={["user", "lastName"]}
+        label="Last Name"
+        rules={[{ required: true, message: "Please input your last name" }]}
       >
         <Input />
       </Form.Item>
@@ -96,19 +109,21 @@ const RegistrationForm: React.FC = (): JSX.Element => {
       <Form.Item
         name="confirm"
         label="Confirm Password"
-        dependencies={['password']}         
+        dependencies={["password"]}
         hasFeedback
         rules={[
           {
             required: true,
-            message: 'Please confirm your password!',
+            message: "Please confirm your password!",
           },
           ({ getFieldValue }) => ({
             validator(rule, value) {
-              if (!value || getFieldValue('password') === value) {
+              if (!value || getFieldValue("password") === value) {
                 return Promise.resolve();
               }
-              return Promise.reject('The two passwords that you entered do not match!');
+              return Promise.reject(
+                "The two passwords that you entered do not match!"
+              );
             },
           }),
         ]}
@@ -133,7 +148,7 @@ const RegistrationForm: React.FC = (): JSX.Element => {
           I have read the <a href="">agreement</a>
         </Checkbox>
       </Form.Item>
-      
+
       <Form.Item {...tailFormItemLayout}>
         <Button type="primary" htmlType="submit">
           Register

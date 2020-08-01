@@ -1,9 +1,12 @@
 import { GET_PRODUCTS_LIST, SET_PRODUCTS_LIST } from "../../utils/types";
 import { phones } from "../../data/phones";
 
-
 export const getProductsList = () => {
-  return async (dispatch: any, getState: any) => {
+  return async (
+    dispatch: any,
+    getState: any,
+    { getFirebase, getFirestore }:any
+  ) => {
     // const book = await getState().manga.bookDetails;
 
     // const newBook = {
@@ -12,7 +15,7 @@ export const getProductsList = () => {
     // };
 
     dispatch({
-      type: GET_PRODUCTS_LIST ,
+      type: GET_PRODUCTS_LIST,
       products: phones,
     });
   };
@@ -20,11 +23,10 @@ export const getProductsList = () => {
 
 // export const setProductsList = () => {
 //   return async (dispatch: any, getState: any) => {
-    
+
 //     dispatch({
 //       type: SET_PRODUCTS_LIST ,
 //       products: phones,
 //     });
 //   };
 // };
-
