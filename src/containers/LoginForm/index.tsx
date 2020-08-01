@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Form, Input, Button, Checkbox, Typography } from "antd";
+import { Form, Input, Button, Checkbox, Alert } from "antd";
 import {
   UserOutlined,
   LockOutlined,
@@ -36,6 +36,8 @@ const LoginForm: React.FC = (): JSX.Element => {
   const isLoggedIn: boolean = useSelector(
     (state: any) => state.auth.isLoggedIn
   );
+  const signinError: boolean = useSelector((state: any) => state.auth.signinError);
+  const loading: boolean = useSelector((state: any) => state.auth.loading);
 
   const validateMessages = {
     required: "${label} is required!",
@@ -45,14 +47,12 @@ const LoginForm: React.FC = (): JSX.Element => {
     },
   };
 
-  const onFinish = async (values: any) => {
-    // console.log("Success:", values);
-    await dispatch(signIn(values));
+  const onFinish = async (values: any) => {    
+    dispatch(signIn(values));
   };
-  
+
   useEffect(() => {
-    isLoggedIn && history.push("/");
-    // history.push("/");
+    isLoggedIn && history.push("/");    
   }, [isLoggedIn]);
 
   const onFinishFailed = (errorInfo: any) => {
@@ -64,49 +64,53 @@ const LoginForm: React.FC = (): JSX.Element => {
   };
 
   return (
-    <Form
-      {...layout}
-      name="basic"
-      form={form}
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      validateMessages={validateMessages}
-    >
-      <Form.Item
-        name={["email"]}
-        label="Email"
-        rules={[{ required: true, type: "email" }]}
+    <>
+      {signinError && <Alert message={signinError} type="info" style={{marginTop:5, marginBottom:10}} closable/>}
+      <Form
+        {...layout}
+        name="basic"
+        form={form}
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        validateMessages={validateMessages}
       >
-        <Input placeholder="username@example.com" />
-      </Form.Item>
-
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[{ required: true, message: "Please input your password!" }]}
-      >
-        <Input.Password
-          placeholder="input password"
-          iconRender={(visible) =>
-            visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-          }
-        />
-      </Form.Item>
-
-      <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-
-      <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
-          Login
-        </Button>
-        <Button htmlType="button" onClick={onReset} style={{ marginLeft: 10 }}>
-          Reset
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item
+          name={["email"]}
+          label="Email"
+          rules={[{ required: true, type: "email" }]}
+        >
+          <Input placeholder="username@example.com" />
+        </Form.Item>
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[{ required: true, message: "Please input your password!" }]}
+        >
+          <Input.Password
+            placeholder="input password"
+            iconRender={(visible) =>
+              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+            }
+          />
+        </Form.Item>
+        <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+          <Checkbox>Remember me</Checkbox>
+        </Form.Item>
+        <Form.Item {...tailLayout}>
+          <Button type="primary" htmlType="submit">
+            Login
+          </Button>
+          <Button
+            htmlType="button"
+            onClick={onReset}
+            style={{ marginLeft: 10 }}
+          >
+            Reset
+          </Button>
+        </Form.Item>
+      </Form>
+    </>
   );
 };
 

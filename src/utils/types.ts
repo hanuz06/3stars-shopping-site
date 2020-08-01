@@ -20,3 +20,38 @@ export const SIGNIN_FAIL = "SIGNIN_FAIL";
 export const SIGNIN_END = "SIGNIN_END";
 
 export const SIGNOUT_SUCCESS = "SIGNOUT_SUCCESS";
+
+export interface IAuthState {
+  loading: boolean;
+  signupError: string | null;
+  signinError: string | null;
+  isLoggedIn: boolean;
+}
+
+interface ISignupSigninStartEnd {
+  type:
+    | typeof SIGNUP_START
+    | typeof SIGNIN_START
+    | typeof SIGNIN_END
+    | typeof SIGNUP_END;
+}
+
+interface ISignupSigninSignoutSuccess {
+  type: typeof SIGNUP_SUCCESS | typeof SIGNIN_SUCCESS | typeof SIGNOUT_SUCCESS;
+}
+
+interface ISignupFail {
+  type: typeof SIGNUP_FAIL;
+  signupError: string;
+}
+
+interface ISigninFail {
+  type: typeof SIGNIN_FAIL;
+  signinError: string;
+}
+
+export type AuthActionsType =
+  | ISignupSigninStartEnd
+  | ISignupFail
+  | ISigninFail
+  | ISignupSigninSignoutSuccess;

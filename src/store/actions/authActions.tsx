@@ -6,7 +6,8 @@ import {
   SIGNUP_START,
   SIGNUP_END,
   SIGNUP_FAIL,
-  SIGNUP_SUCCESS,SIGNOUT_SUCCESS
+  SIGNUP_SUCCESS,
+  SIGNOUT_SUCCESS,
 } from "../../utils/types";
 // import firebase from "firebase/app";
 import { ConsoleSqlOutlined } from "@ant-design/icons";
@@ -30,6 +31,7 @@ export const signUp = ({ user, email, password }: NewAccountParameters) => {
     const firebase = getFirebase();
     const firestore = getFirestore();
     dispatch({ type: SIGNUP_START });
+
     try {
       const res = await firebase
         .auth()
@@ -49,9 +51,9 @@ export const signUp = ({ user, email, password }: NewAccountParameters) => {
       dispatch({ type: SIGNUP_SUCCESS });
     } catch (err) {
       console.log("SIGNUP FAILED: ", err.message);
-      dispatch({ type: SIGNUP_FAIL, payload: err.message });
+      dispatch({ type: SIGNUP_FAIL, signupError: err.message });
     }
-    dispatch({ type: SIGNIN_END });
+    dispatch({ type: SIGNUP_END });
   };
 };
 
@@ -59,6 +61,7 @@ export const signIn = ({ email, password }: NewAccountParameters) => {
   return async (dispatch: any, getState: any, { getFirebase }: any) => {
     const firebase = getFirebase();
     dispatch({ type: SIGNIN_START });
+
     try {
       const res = await firebase
         .auth()
@@ -67,10 +70,11 @@ export const signIn = ({ email, password }: NewAccountParameters) => {
       sessionStorage.setItem("userToken", res.user.l);
       dispatch({ type: SIGNIN_SUCCESS });
     } catch (err) {
-      console.log("SIGNIN FAILED ", err.message);
+
+      console.log("SIGNIN FAILED ", typeof err.message);
       console.log("SIGNIN FAILED ", email);
       console.log("SIGNIN FAILED ", password);
-      dispatch({ type: SIGNIN_FAIL, payload: err.message });
+      dispatch({ type: SIGNIN_FAIL, signinError: err.message });
     }
     dispatch({ type: SIGNIN_END });
   };
@@ -85,7 +89,7 @@ export const signOut = () => async (
   const firebase = getFirebase();
   try {
     await firebase.auth().signOut();
-    sessionStorage.removeItem("userToken")
+    sessionStorage.removeItem("userToken");
     console.log("SIGNOUT SUCCESS");
     dispatch({ type: SIGNOUT_SUCCESS });
   } catch (err) {

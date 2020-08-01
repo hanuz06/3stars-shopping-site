@@ -8,15 +8,18 @@ import {
   SIGNUP_FAIL,
   SIGNUP_SUCCESS,
   SIGNOUT_SUCCESS,
+  IAuthState,
+  AuthActionsType,
 } from "../../utils/types";
 
-const initState = {
+const initState: IAuthState = {
   loading: false,
-  authError: null,
+  signinError: null,
+  signupError: null,
   isLoggedIn: false,
 };
 
-const authReducer = (state = initState, action: any) => {
+const authReducer = (state = initState, action: AuthActionsType) => {
   switch (action.type) {
     case SIGNUP_START:
     case SIGNIN_START: {
@@ -42,16 +45,20 @@ const authReducer = (state = initState, action: any) => {
     }
     case SIGNOUT_SUCCESS: {
       return {
-        ...state,  
-        authError: null,     
+        ...state,
+        authError: null,
         isLoggedIn: false,
       };
     }
-    case SIGNUP_FAIL:
+    case SIGNUP_FAIL:    
+      return {
+        ...state,
+        signupError: action.signupError,
+      };  
     case SIGNIN_FAIL:
       return {
         ...state,
-        authError: action.payload,
+        signinError: action.signinError,
       };
     default:
       return state;
