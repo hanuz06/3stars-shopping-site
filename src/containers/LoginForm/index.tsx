@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Input, Button, Checkbox, Typography } from "antd";
 import {
   UserOutlined,
@@ -6,6 +6,9 @@ import {
   EyeInvisibleOutlined,
   EyeTwoTone,
 } from "@ant-design/icons";
+import { useSelector, useDispatch } from "react-redux";
+import { signIn } from "../../store/actions/authActions";
+import { Redirect, withRouter, useHistory } from "react-router-dom";
 
 const layout = {
   labelCol: { span: 8 },
@@ -26,6 +29,13 @@ const tailLayout = {
 
 const LoginForm: React.FC = (): JSX.Element => {
   const [form] = Form.useForm();
+  let history = useHistory();
+
+  const dispatch = useDispatch();
+
+  const isLoggedIn: boolean = useSelector(
+    (state: any) => state.auth.isLoggedIn
+  );
 
   const validateMessages = {
     required: "${label} is required!",
@@ -35,9 +45,15 @@ const LoginForm: React.FC = (): JSX.Element => {
     },
   };
 
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
+  const onFinish = async (values: any) => {
+    // console.log("Success:", values);
+    await dispatch(signIn(values));
   };
+  
+  useEffect(() => {
+    isLoggedIn && history.push("/");
+    // history.push("/");
+  }, [isLoggedIn]);
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
@@ -58,7 +74,7 @@ const LoginForm: React.FC = (): JSX.Element => {
       validateMessages={validateMessages}
     >
       <Form.Item
-        name={["user", "email"]}
+        name={["email"]}
         label="Email"
         rules={[{ required: true, type: "email" }]}
       >
@@ -94,4 +110,4 @@ const LoginForm: React.FC = (): JSX.Element => {
   );
 };
 
-export default LoginForm;
+export default withRouter(LoginForm);

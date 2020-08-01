@@ -1,0 +1,61 @@
+import {
+  SIGNIN_START,
+  SIGNIN_END,
+  SIGNIN_FAIL,
+  SIGNIN_SUCCESS,
+  SIGNUP_START,
+  SIGNUP_END,
+  SIGNUP_FAIL,
+  SIGNUP_SUCCESS,
+  SIGNOUT_SUCCESS,
+} from "../../utils/types";
+
+const initState = {
+  loading: false,
+  authError: null,
+  isLoggedIn: false,
+};
+
+const authReducer = (state = initState, action: any) => {
+  switch (action.type) {
+    case SIGNUP_START:
+    case SIGNIN_START: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case SIGNUP_END:
+    case SIGNIN_END: {
+      return {
+        ...state,
+        loading: false,
+      };
+    }
+    case SIGNUP_SUCCESS:
+    case SIGNIN_SUCCESS: {
+      return {
+        ...state,
+        authError: null,
+        isLoggedIn: true,
+      };
+    }
+    case SIGNOUT_SUCCESS: {
+      return {
+        ...state,  
+        authError: null,     
+        isLoggedIn: false,
+      };
+    }
+    case SIGNUP_FAIL:
+    case SIGNIN_FAIL:
+      return {
+        ...state,
+        authError: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export default authReducer;
