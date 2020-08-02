@@ -17,6 +17,11 @@ const initState: IAuthState = {
   signinError: null,
   signupError: null,
   isLoggedIn: false,
+  loggedInUser: {
+    email: "",
+    firstName: "",
+    lastName: "",
+  },
 };
 
 const authReducer = (state = initState, action: AuthActionsType) => {
@@ -41,6 +46,7 @@ const authReducer = (state = initState, action: AuthActionsType) => {
         ...state,
         authError: null,
         isLoggedIn: true,
+        loggedInUser: action.loggedInUser
       };
     }
     case SIGNOUT_SUCCESS: {
@@ -50,11 +56,11 @@ const authReducer = (state = initState, action: AuthActionsType) => {
         isLoggedIn: false,
       };
     }
-    case SIGNUP_FAIL:    
+    case SIGNUP_FAIL:
       return {
         ...state,
         signupError: action.signupError,
-      };  
+      };
     case SIGNIN_FAIL:
       return {
         ...state,

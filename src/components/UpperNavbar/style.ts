@@ -56,7 +56,11 @@ export const useStyles = createUseStyles({
     alignItems: "center",
     justifyContent: "space-between",
     height: "100%",
-    width: 100,   
+    minWidth: 110,
+    margin: {
+      left: 5,
+      right: 5,
+    },
   },
   loginSignupLink: {
     display: "flex",
@@ -65,15 +69,22 @@ export const useStyles = createUseStyles({
     height: "100%",
     width: "100%",
     maxWidth: 200,
+    marginRight: 5,
   },
 
-  "@media (max-width: 1188px)": {
+  "@media (max-width: 1205px)": {
     container: {
       flex: { direction: "column" },
       alignItems: "center",
     },
     topLeft: {
       width: "80%",
+    },
+    topRight: {
+      width: "80%",
+      justifyContent: "center",
+      alignItems: "center",
+      paddingRight: 0,
     },
     contactInfo: {
       width: 260,
@@ -82,15 +93,7 @@ export const useStyles = createUseStyles({
   iconStyle: {},
   "@media (max-width: 775px)": {
     topLeft: {
-      // flex: { direction: "column" },
-      // alignItems: "center",
       display: "none",
-    },
-    topRight: {
-      width: "80%",
-      alignItems: "center",
-      justifyContent: "center",
-      paddingRight: 0,
     },
     contactInfo: {
       justifyContent: "center",
@@ -101,14 +104,14 @@ export const useStyles = createUseStyles({
       flex: { direction: "column" },
     },
     snsLinks: {
-      width: 150,
+      width: 200,
     },
     iconStyle: {
       width: 25,
       height: 25,
     },
     textStyle: {
-      // fontSize: "1.2em",
+      fontSize: "1.2em",
     },
   },
 });

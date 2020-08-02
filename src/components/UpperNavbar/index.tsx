@@ -15,6 +15,7 @@ import { Badge, Tooltip } from "antd";
 import { LoginOutlined, LogoutOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { signOut } from "../../store/actions/authActions";
+import { isLoaded } from "react-redux-firebase";
 
 const { Text, Link } = Typography;
 const { Header } = Layout;
@@ -26,11 +27,13 @@ const UpperNavbar: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn);
+  const loggedInUser = useSelector((state: any) => state.auth.loggedInUser);
+  const auth = useSelector((state: any) => state.firebase.auth);
+  const fireStoreData = useSelector((state: any) => state.firestore);
 
-  let userToken = sessionStorage.getItem("userToken");
+  // console.log("FIRESTORE DATA ", auth);
 
   const logOut = () => {
-  
     dispatch(signOut());
   };
 
@@ -75,10 +78,13 @@ const UpperNavbar: React.FC = (): JSX.Element => {
               </Tooltip>
             </Link>
           </div>
-          {isLoggedIn && userToken ? (
+          {auth.apiKey ? (
             <div onClick={logOut} className={classes.loginSignupLink}>
               <LogoutOutlined style={{ color: "white" }} />
               <NavLink exact to="/">
+                <Text className={classes.textStyle}>
+                  Hello, {loggedInUser.firstName}
+                </Text>
                 <Text className={classes.textStyle}>Logout</Text>
               </NavLink>
             </div>
@@ -103,7 +109,9 @@ const UpperNavbar: React.FC = (): JSX.Element => {
               title="Your items in cart"
               color="#808080"
             >
-              <FaShoppingCart color="white" />
+              <NavLink exact to="/cart">
+                <FaShoppingCart color="white" />
+              </NavLink>
             </Tooltip>
           </Badge>
         </div>

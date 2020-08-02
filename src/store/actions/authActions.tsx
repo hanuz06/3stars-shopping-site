@@ -9,8 +9,6 @@ import {
   SIGNUP_SUCCESS,
   SIGNOUT_SUCCESS,
 } from "../../utils/types";
-// import firebase from "firebase/app";
-import { ConsoleSqlOutlined } from "@ant-design/icons";
 
 interface NewAccountParameters {
   user: {
@@ -41,58 +39,63 @@ export const signUp = ({ user, email, password }: NewAccountParameters) => {
       // const currentUser = firebase.auth().currentUser;
       // await currentUser.sendEmailVerification();
 
-      await firestore.collection("users").doc(res.user.uid).set({
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: email,
-      });
+      const signedupUser = await firestore
+        .collection("users")
+        .doc(res.user.uid)
+        .set({
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: email,
+        });
 
-      console.log("SIGNUP SUCCESS: ", res.user);
-      dispatch({ type: SIGNUP_SUCCESS });
+      const signedupUserData = signedupUser.data();
+
+      dispatch({ type: SIGNUP_SUCCESS, loggedInUser: signedupUserData });
     } catch (err) {
-      console.log("SIGNUP FAILED: ", err.message);
       dispatch({ type: SIGNUP_FAIL, signupError: err.message });
     }
     dispatch({ type: SIGNUP_END });
   };
 };
 
+// Signin action
 export const signIn = ({ email, password }: NewAccountParameters) => {
-  return async (dispatch: any, getState: any, { getFirebase }: any) => {
+  return async (
+    dispatch: any,
+    getState: any,
+    { getFirestore, getFirebase }: any
+  ) => {
     const firebase = getFirebase();
+    const firestore = getFirestore();
     dispatch({ type: SIGNIN_START });
 
     try {
       const res = await firebase
         .auth()
         .signInWithEmailAndPassword(email, password);
-      // console.log("SIGNIN SUCCESS WITH TOKEN ", res.user.l);
-      sessionStorage.setItem("userToken", res.user.l);
-      dispatch({ type: SIGNIN_SUCCESS });
-    } catch (err) {
+      const userData = await firestore
+        .collection("users")
+        .doc(res.user.uid)
+        .get();
 
-      console.log("SIGNIN FAILED ", typeof err.message);
-      console.log("SIGNIN FAILED ", email);
-      console.log("SIGNIN FAILED ", password);
+      const loggedInUser = userData.data();
+
+      dispatch({ type: SIGNIN_SUCCESS, loggedInUser });
+    } catch (err) {
       dispatch({ type: SIGNIN_FAIL, signinError: err.message });
     }
     dispatch({ type: SIGNIN_END });
   };
 };
 
-// Logout action creator
+// Signout action
 export const signOut = () => async (
   dispatch: any,
   getState: any,
   { getFirebase }: any
 ) => {
   const firebase = getFirebase();
-  try {
-    await firebase.auth().signOut();
-    sessionStorage.removeItem("userToken");
-    console.log("SIGNOUT SUCCESS");
-    dispatch({ type: SIGNOUT_SUCCESS });
-  } catch (err) {
-    console.log(err.message);
-  }
+
+  await firebase.auth().signOut();
+  dispatch({ type: SIGNOUT_SUCCESS });
 };

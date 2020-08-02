@@ -26,6 +26,11 @@ export interface IAuthState {
   signupError: string | null;
   signinError: string | null;
   isLoggedIn: boolean;
+  loggedInUser: {
+    email: string;
+    firstName: string;
+    lastName: string;
+  };
 }
 
 interface ISignupSigninStartEnd {
@@ -36,8 +41,17 @@ interface ISignupSigninStartEnd {
     | typeof SIGNUP_END;
 }
 
-interface ISignupSigninSignoutSuccess {
-  type: typeof SIGNUP_SUCCESS | typeof SIGNIN_SUCCESS | typeof SIGNOUT_SUCCESS;
+interface ISignupSigninSuccess {
+  type: typeof SIGNUP_SUCCESS | typeof SIGNIN_SUCCESS;
+  loggedInUser: {
+    email: string;
+    firstName: string;
+    lastName: string;
+  };
+}
+
+interface ISignoutSuccess {
+  type: typeof SIGNOUT_SUCCESS;
 }
 
 interface ISignupFail {
@@ -54,4 +68,5 @@ export type AuthActionsType =
   | ISignupSigninStartEnd
   | ISignupFail
   | ISigninFail
-  | ISignupSigninSignoutSuccess;
+  | ISignoutSuccess
+  | ISignupSigninSuccess;

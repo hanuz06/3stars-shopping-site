@@ -3,11 +3,20 @@ import ReactDOM from "react-dom";
 import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
 import { createStore, applyMiddleware, compose } from "redux";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import thunk from "redux-thunk";
 import rootReducer from "./store/reducers/rootReducer";
-import { reduxFirestore, getFirestore, createFirestoreInstance } from "redux-firestore";
-import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
+import {
+  reduxFirestore,
+  getFirestore,
+  createFirestoreInstance,
+} from "redux-firestore";
+import {
+  ReactReduxFirebaseProvider,
+  getFirebase,
+  isLoaded,
+} from "react-redux-firebase";
+
 import fbConfig from "./lib/fbConfig";
 import firebase from "firebase/app";
 
@@ -31,13 +40,22 @@ const rrfProps = {
   firebase,
   config: fbConfig,
   dispatch: store.dispatch,
-  createFirestoreInstance
+  createFirestoreInstance,
+};
+
+// Detects if authentication is loaded. In case a user has logged in it prevents Login/Register component flashing in the header. Instead, it waits for authentication is loaded then shows Logout component.
+const AuthIsLoaded = ({ children }: any) => {
+  const auth = useSelector((state: any) => state.firebase.auth);
+  if (!isLoaded(auth)) return <div></div>;
+  return children;
 };
 
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
-      <App />
+      <AuthIsLoaded>
+        <App />
+      </AuthIsLoaded>
     </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById("root")

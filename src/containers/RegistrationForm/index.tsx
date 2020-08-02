@@ -56,15 +56,7 @@ const RegistrationForm: React.FC = (): JSX.Element => {
   };
 
   return (
-    <>
-      {signupError && (
-        <Alert
-          message={signupError}
-          type="info"
-          style={{ marginTop: 5, marginBottom: 10 }}
-          closable
-        />
-      )}
+    <>     
       <Form
         {...formItemLayout}
         form={form}
@@ -175,6 +167,14 @@ const RegistrationForm: React.FC = (): JSX.Element => {
           </Button>
         </Form.Item>
       </Form>
+      {signupError && (
+        <Alert
+          message={signupError}
+          type="info"
+          style={{ marginTop: 5, marginBottom: 10 }}
+          closable
+        />
+      )}
     </>
   );
 };

@@ -33,10 +33,14 @@ const LoginForm: React.FC = (): JSX.Element => {
 
   const dispatch = useDispatch();
 
-  const isLoggedIn: boolean = useSelector(
-    (state: any) => state.auth.isLoggedIn
+  const firebaseKey = useSelector((state: any) => state.firebase.auth.apiKey);  
+
+  // const isLoggedIn: boolean = useSelector(
+  //   (state: any) => state.auth.isLoggedIn
+  // );
+  const signinError: boolean = useSelector(
+    (state: any) => state.auth.signinError
   );
-  const signinError: boolean = useSelector((state: any) => state.auth.signinError);
   const loading: boolean = useSelector((state: any) => state.auth.loading);
 
   const validateMessages = {
@@ -47,13 +51,13 @@ const LoginForm: React.FC = (): JSX.Element => {
     },
   };
 
-  const onFinish = async (values: any) => {    
+  const onFinish = async (values: any) => {
     dispatch(signIn(values));
   };
 
   useEffect(() => {
-    isLoggedIn && history.push("/");    
-  }, [isLoggedIn]);
+    firebaseKey && history.push("/");
+  }, [firebaseKey]);
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
@@ -65,7 +69,6 @@ const LoginForm: React.FC = (): JSX.Element => {
 
   return (
     <>
-      {signinError && <Alert message={signinError} type="info" style={{marginTop:5, marginBottom:10}} closable/>}
       <Form
         {...layout}
         name="basic"
@@ -110,6 +113,14 @@ const LoginForm: React.FC = (): JSX.Element => {
           </Button>
         </Form.Item>
       </Form>
+      {signinError && (
+        <Alert
+          message={signinError}
+          type="info"
+          style={{ marginTop: 5, marginBottom: 10 }}
+          closable
+        />
+      )}
     </>
   );
 };
