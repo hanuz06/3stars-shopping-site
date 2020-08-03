@@ -1,15 +1,23 @@
 import React, { memo, useEffect } from "react";
 import { useStyles } from "./style";
 import PhoneCard from "../../components/PhoneCard";
-// import { phones } from "../../data/phones";
 import { getProductsList } from "../../store/actions/productsActions";
 import { useSelector, useDispatch } from "react-redux";
-import { firestoreConnect } from "react-redux-firebase";
+import { useFirestoreConnect } from "react-redux-firebase";
+import { NavLink } from "react-router-dom";
 
 const LandingPage: React.FC = (): JSX.Element => {
   const classes = useStyles();
+  useFirestoreConnect([{ collection: "phones" }, { collection: "headsets" }]);
 
   const dispatch = useDispatch();
+
+  // Get product list from Firestore
+  const productsList = useSelector<any, any>(
+    (state) => state.firestore.ordered.phones
+  );
+
+  // console.log("PHONES ", productsList);
 
   useEffect(() => {
     dispatch(getProductsList());
@@ -24,23 +32,25 @@ const LandingPage: React.FC = (): JSX.Element => {
     info: T;
   }
 
-  const productsList = useSelector<any, [Products<string>]>(
-    (state: any) => state.products.products
-  );
+  // Get product list locally
+  // const productsList = useSelector<any, [Products<string>]>(
+  //   (state: any) => state.products.products
+  // );
 
   return (
-    <section className={classes.cardContainer}>
+    <section className={classes.cardContainer}>      
       {productsList &&
         productsList.map((phone: any) => (
-          <PhoneCard
-            key={phone.id}
-            id={phone.id}
-            title={phone.title}
-            image={phone.img}
-            price={phone.price}
-            company={phone.company}
-            info={phone.info}
-          />
+          <NavLink key={phone.id} to={`/details/${phone.id}`}>
+            <PhoneCard
+              id={phone.id}
+              title={phone.title}
+              image={phone.img}
+              price={phone.price}
+              company={phone.company}
+              info={phone.info}
+            />
+          </NavLink>
         ))}
     </section>
   );

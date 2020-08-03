@@ -33,7 +33,7 @@ const App: FC = () => {
             justifyContent: "center",
             alignItems: "center",
             width: "100%",
-            minHeight: "75vh",
+            minHeight: "100vh",
           }}
         >
           <Spin indicator={antIcon} />
@@ -53,7 +53,7 @@ const App: FC = () => {
                 <Route path="/cart" component={CartPage} />
                 <Route path="/contact" component={ContactUsPage} />
                 <Route path="/checkout" component={CheckoutPage} />
-                <Route path="/details" component={ProductDetailsPage} />
+                <Route path="/details/:id" component={ProductDetailsPage} />
               </Switch>
             </Content>
             <Footer
