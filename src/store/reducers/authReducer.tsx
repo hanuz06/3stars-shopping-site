@@ -46,7 +46,7 @@ const authReducer = (state = initState, action: AuthActionsType) => {
         ...state,
         authError: null,
         isLoggedIn: true,
-        loggedInUser: action.loggedInUser
+        loggedInUser: action.loggedInUser,
       };
     }
     case SIGNOUT_SUCCESS: {
@@ -54,6 +54,11 @@ const authReducer = (state = initState, action: AuthActionsType) => {
         ...state,
         authError: null,
         isLoggedIn: false,
+        loggedInUser: {
+          email: "",
+          firstName: "",
+          lastName: "",
+        },
       };
     }
     case SIGNUP_FAIL:

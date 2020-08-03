@@ -59,16 +59,14 @@ const LowerNavbar = () => {
             <SubMenu key="sub1" icon={<AppstoreOutlined />} title="SHOP">
               <Menu.Item key="2">
                 <NavLink exact to="/">
-                  GADGETS
+                  PHONES{" "}
                 </NavLink>
               </Menu.Item>
-              <Menu.Item key="3">ACCESSORIES</Menu.Item>
+              <Menu.Item key="3">HEADSETS</Menu.Item>
             </SubMenu>
             <SubMenu key="sub2" icon={<UserOutlined />} title="MY ACCOUNT">
               <Menu.Item key="4">
-                <NavLink exact to="/cart">
-                  CART
-                </NavLink>
+                <NavLink to="/cart">CART</NavLink>
               </Menu.Item>
               <Menu.Item key="5">CHECKOUT</Menu.Item>
             </SubMenu>

@@ -1,6 +1,6 @@
 ## 3stars-shopping-site
 
-This will be a shopping site. Users will be able to login/signup, see products list, add/remove items to cart, make payments, rate products and leave reviews.
+This is a mobile-friendly shopping site. Users will be able to login/signup, see products list, add/remove items to cart, make payments, rate products and leave reviews.
 
 ### Tech
 

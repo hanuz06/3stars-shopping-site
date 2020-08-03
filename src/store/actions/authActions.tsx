@@ -50,6 +50,8 @@ export const signUp = ({ user, email, password }: NewAccountParameters) => {
 
       const signedupUserData = signedupUser.data();
 
+      sessionStorage.setItem("firstName", signedupUserData.firstName);
+
       dispatch({ type: SIGNUP_SUCCESS, loggedInUser: signedupUserData });
     } catch (err) {
       dispatch({ type: SIGNUP_FAIL, signupError: err.message });
@@ -80,6 +82,8 @@ export const signIn = ({ email, password }: NewAccountParameters) => {
 
       const loggedInUser = userData.data();
 
+      sessionStorage.setItem("firstName", loggedInUser.firstName);
+
       dispatch({ type: SIGNIN_SUCCESS, loggedInUser });
     } catch (err) {
       dispatch({ type: SIGNIN_FAIL, signinError: err.message });
@@ -97,5 +101,6 @@ export const signOut = () => async (
   const firebase = getFirebase();
 
   await firebase.auth().signOut();
+  sessionStorage.removeItem("firstName")
   dispatch({ type: SIGNOUT_SUCCESS });
 };

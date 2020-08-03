@@ -21,6 +21,14 @@ export const SIGNIN_END = "SIGNIN_END";
 
 export const SIGNOUT_SUCCESS = "SIGNOUT_SUCCESS";
 
+export interface ProductDetails<T> {
+  title: T;
+  img: T;
+  price: number;
+  company: T;
+  info: T;
+}
+
 export interface IAuthState {
   loading: boolean;
   signupError: string | null;

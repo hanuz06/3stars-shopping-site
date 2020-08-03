@@ -1,0 +1,132 @@
+{
+  "phones":[
+     {
+        "id":1,
+        "title":"Google Pixel - Black",
+        "img":"phones/product-1.png",
+        "price":10,
+        "company":"Google",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":2,
+        "title":"Samsung S7",
+        "img":"phones/product-2.png",
+        "price":16,
+        "company":"Samsung",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":3,
+        "title":"HTC 10 - Black",
+        "img":"phones/product-3.png",
+        "price":8,
+        "company":"HTC",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":4,
+        "title":"HTC 10 - White",
+        "img":"phones/product-4.png",
+        "price":18,
+        "company":"HTC",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":5,
+        "title":"HTC Desire 626s",
+        "img":"phones/product-5.png",
+        "price":24,
+        "company":"HTC",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":6,
+        "title":"Vintage Iphone",
+        "img":"phones/product-6.png",
+        "price":17,
+        "company":"Apple",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":7,
+        "title":"Iphone 7",
+        "img":"phones/product-7.png",
+        "price":30,
+        "company":"Apple",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":8,
+        "title":"Smashed Iphone",
+        "img":"phones/product-8.png",
+        "price":2,
+        "company":"Apple",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":9,
+        "title":"Google Pixel - Black",
+        "img":"phones/product-9.png",
+        "price":10,
+        "company":"Google",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":10,
+        "title":"Samsung S7",
+        "img":"phones/product-10.png",
+        "price":16,
+        "company":"Samsung",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":11,
+        "title":"HTC 10 - Black",
+        "img":"phones/product-11.png",
+        "price":8,
+        "company":"HTC",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":12,
+        "title":"HTC 10 - White",
+        "img":"phones/product-12.png",
+        "price":18,
+        "company":"HTC",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":13,
+        "title":"HTC Desire 626s",
+        "img":"phones/product-13.png",
+        "price":24,
+        "company":"HTC",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":14,
+        "title":"Vintage Iphone",
+        "img":"phones/product-14.png",
+        "price":17,
+        "company":"Apple",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":15,
+        "title":"Iphone 7",
+        "img":"phones/product-15.png",
+        "price":30,
+        "company":"Apple",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     },
+     {
+        "id":16,
+        "title":"Smashed Iphone",
+        "img":"phones/product-16.png",
+        "price":2,
+        "company":"Apple",
+        "info":"Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle."
+     }
+  ]
+}

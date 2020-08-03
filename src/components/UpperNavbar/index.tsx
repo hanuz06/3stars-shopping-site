@@ -15,7 +15,7 @@ import { Badge, Tooltip } from "antd";
 import { LoginOutlined, LogoutOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { signOut } from "../../store/actions/authActions";
-import { isLoaded } from "react-redux-firebase";
+// import { isLoaded } from "react-redux-firebase";
 
 const { Text, Link } = Typography;
 const { Header } = Layout;
@@ -26,12 +26,15 @@ const UpperNavbar: React.FC = (): JSX.Element => {
 
   const dispatch = useDispatch();
 
-  const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn);
-  const loggedInUser = useSelector((state: any) => state.auth.loggedInUser);
-  const auth = useSelector((state: any) => state.firebase.auth);
-  const fireStoreData = useSelector((state: any) => state.firestore);
+  // const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn);
 
-  // console.log("FIRESTORE DATA ", auth);
+  // loggedInUserFirstName is coming from Redux state. On page reload redux is lost so userNameFromSessionStorage is used to keep the name for login/logout button.
+  const loggedInUserFirstName = useSelector(
+    (state: any) => state.auth.loggedInUser.firstName
+  );
+  const userNameFromSessionStorage = sessionStorage.getItem("firstName");
+  const auth = useSelector((state: any) => state.firebase.auth);
+  // const fireStoreData = useSelector((state: any) => state.firestore);
 
   const logOut = () => {
     dispatch(signOut());
@@ -82,9 +85,16 @@ const UpperNavbar: React.FC = (): JSX.Element => {
             <div onClick={logOut} className={classes.loginSignupLink}>
               <LogoutOutlined style={{ color: "white" }} />
               <NavLink exact to="/">
-                <Text className={classes.textStyle}>
-                  Hello, {loggedInUser.firstName}
-                </Text>
+                {loggedInUserFirstName ? (
+                  <Text className={classes.textStyle}>
+                    Hello, {loggedInUserFirstName}
+                  </Text>
+                ) : (
+                  <Text className={classes.textStyle}>
+                    Hello, {userNameFromSessionStorage}
+                  </Text>
+                )}
+
                 <Text className={classes.textStyle}>Logout</Text>
               </NavLink>
             </div>
