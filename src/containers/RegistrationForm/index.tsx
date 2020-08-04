@@ -1,17 +1,5 @@
-import React, { useState } from "react";
-import {
-  Form,
-  Input,
-  Tooltip,
-  Cascader,
-  Select,
-  Row,
-  Col,
-  Checkbox,
-  Button,
-  AutoComplete,
-  Alert,
-} from "antd";
+import React from "react";
+import { Form, Input, Checkbox, Button, Alert } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { signUp } from "../../store/actions/authActions";
 
@@ -41,13 +29,13 @@ const tailFormItemLayout = {
 const RegistrationForm: React.FC = (): JSX.Element => {
   const [form] = Form.useForm();
 
-  const signupError: boolean = useSelector((state: any) => state.auth.signupError);
-  const loading: boolean = useSelector((state: any) => state.auth.loading);
+  const signupError: boolean = useSelector(
+    (state: any) => state.auth.signupError
+  );
 
   const dispatch = useDispatch();
 
   const onFinish = (values: any) => {
-    // console.log("Received values of form: ", values);
     dispatch(signUp(values));
   };
 
@@ -56,7 +44,7 @@ const RegistrationForm: React.FC = (): JSX.Element => {
   };
 
   return (
-    <>     
+    <>
       <Form
         {...formItemLayout}
         form={form}

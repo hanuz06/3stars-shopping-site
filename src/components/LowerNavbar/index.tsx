@@ -16,19 +16,15 @@ const LowerNavbar = () => {
 
   const classes = useStyles();
 
-  const handleClick = (e: any) => {
-    setCurrent(e.key);
-  };
-
-  const hangleSearch = (word: string) => {
-    setSearchWord(word);
-  };
+  const handleClick = (e: any) => setCurrent(e.key);
+  const hangleSearch = (word: string) => setSearchWord(word);
+  const setKey = () => setCurrent("1");
 
   return (
     <span className="sticky-inner">
       <Header className={classes.lowerContainer}>
         <div className={classes.container}>
-          <NavLink exact to="/">
+          <NavLink exact to="/" onClick={setKey}>
             <img src={logo} alt="logo" className={classes.imageStyle} />
           </NavLink>
           <Search
@@ -42,10 +38,9 @@ const LowerNavbar = () => {
             maxLength={30}
             className={classes.searchWindow}
           />
-
           <Menu
             onClick={handleClick}
-            // selectedKeys={[current]}
+            selectedKeys={[current]}
             defaultSelectedKeys={["1"]}
             mode="horizontal"
             triggerSubMenuAction="hover"

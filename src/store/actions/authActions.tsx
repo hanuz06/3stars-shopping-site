@@ -8,16 +8,8 @@ import {
   SIGNUP_FAIL,
   SIGNUP_SUCCESS,
   SIGNOUT_SUCCESS,
+  NewAccountParameters
 } from "../../utils/types";
-
-interface NewAccountParameters {
-  user: {
-    firstName: string;
-    lastName: string;
-  };
-  email: string;
-  password: string;
-}
 
 // Signup action
 export const signUp = ({ user, email, password }: NewAccountParameters) => {
@@ -38,22 +30,24 @@ export const signUp = ({ user, email, password }: NewAccountParameters) => {
       // Send the verfication email
       // const currentUser = firebase.auth().currentUser;
       // await currentUser.sendEmailVerification();
+    
+      await firestore.collection("users").doc(res.user.uid).set({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: email,
+      });
 
-      const signedupUser = await firestore
-        .collection("users")
-        .doc(res.user.uid)
-        .set({
+      sessionStorage.setItem("firstName", user.firstName);
+
+      dispatch({
+        type: SIGNUP_SUCCESS,
+        loggedInUser: {
           firstName: user.firstName,
           lastName: user.lastName,
           email: email,
-        });
-
-      const signedupUserData = signedupUser.data();
-
-      sessionStorage.setItem("firstName", signedupUserData.firstName);
-
-      dispatch({ type: SIGNUP_SUCCESS, loggedInUser: signedupUserData });
-    } catch (err) {
+        },
+      });
+    } catch (err) {      
       dispatch({ type: SIGNUP_FAIL, signupError: err.message });
     }
     dispatch({ type: SIGNUP_END });
@@ -101,6 +95,6 @@ export const signOut = () => async (
   const firebase = getFirebase();
 
   await firebase.auth().signOut();
-  sessionStorage.removeItem("firstName")
+  sessionStorage.removeItem("firstName");
   dispatch({ type: SIGNOUT_SUCCESS });
 };
