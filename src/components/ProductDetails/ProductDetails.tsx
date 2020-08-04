@@ -11,7 +11,7 @@ interface Props<T> {
   info: T;
 }
 
-const PhoneCard: React.FC<Props<string>> = ({
+const ProductDetails: React.FC<Props<string>> = ({
   id,
   title,
   image,
@@ -55,4 +55,4 @@ const PhoneCard: React.FC<Props<string>> = ({
   );
 };
 
-export default PhoneCard;
+export default ProductDetails;

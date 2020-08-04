@@ -21,6 +21,15 @@ export const SIGNIN_END = "SIGNIN_END";
 
 export const SIGNOUT_SUCCESS = "SIGNOUT_SUCCESS";
 
+export interface NewAccountParameters {
+  user: {
+    firstName: string;
+    lastName: string;
+  };
+  email: string;
+  password: string;
+}
+
 export interface ProductDetails<T> {
   title: T;
   img: T;
