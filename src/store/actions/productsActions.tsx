@@ -1,5 +1,5 @@
 import { GET_PRODUCTS_LIST, SET_PRODUCTS_LIST } from "../../utils/types";
-import { phones } from "../../data/phones";
+import { phones } from "../../data/phones.js";
 
 export const getProductsList = () => {
   return async (

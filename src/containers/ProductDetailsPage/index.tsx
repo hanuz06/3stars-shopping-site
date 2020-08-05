@@ -1,12 +1,14 @@
 import React, { useEffect, useState, memo } from "react";
-import { Typography, Card, Button } from "antd";
+import { Typography, Card, Button, Spin } from "antd";
 import { useStyles } from "./style";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useFirestoreConnect } from "react-redux-firebase";
-import { ProductDetails } from "../../utils/types";
+import { LoadingOutlined } from "@ant-design/icons";
 
 import pic from "../../data/pic/product-1.png";
+
+const antIcon = <LoadingOutlined style={{ fontSize: 28 }} spin />;
 
 const { Title, Text } = Typography;
 
@@ -24,6 +26,7 @@ const { Title, Text } = Typography;
 // }
 
 const ProductDetailsPage: React.FC = (props: any): JSX.Element => {
+  const [selectedProduct, setSelectedProduct] = useState<any>({});
   const classes = useStyles();
 
   // // Connect to Firestore and get a single product by id
@@ -43,24 +46,30 @@ const ProductDetailsPage: React.FC = (props: any): JSX.Element => {
   const selectedHeadset = useSelector<any, any>(
     (state) => state.firestore.ordered.headsets
   );
+
+  // Get product id from props that get id from url
   const id: string = props.match.params.id;
 
-  let product: ProductDetails<string> | null = null;
-  // Get product id from props that get id from url
-  if (selectedPhone) {
-    product = selectedPhone[0];
-  } else if (selectedHeadset) {
-    product = selectedHeadset[0];
-  } else {
-    product = null;
-  }
+  useEffect(() => {
+    if (selectedPhone) {
+      setSelectedProduct(selectedPhone[0]);
+    } else if (selectedHeadset) {
+      setSelectedProduct(selectedHeadset[0]);
+    } else {
+      setSelectedProduct({});
+    }
+  }, [selectedPhone, selectedHeadset]);
 
-  if (product) {
+  useEffect(() => {
+    setSelectedProduct({});
+  }, []);
+
+  if (selectedProduct) {
     return (
       <section className={classes.container}>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ textAlign: "center" }}>
-            <Title level={3}>{product.title}</Title>
+            <Title level={3}>{selectedProduct.title}</Title>
           </div>
           <div className={classes.wrapperContainer}>
             <div className={classes.innerContainer}>
@@ -71,14 +80,14 @@ const ProductDetailsPage: React.FC = (props: any): JSX.Element => {
                 bordered={false}
                 style={{ maxWidth: 300, backgroundColor: "#F0F2F5" }}
               >
-                <Title level={4}>{product.title}</Title>
+                <Title level={4}>{selectedProduct.title}</Title>
                 <br />
                 <Text strong>Manufacturer:</Text>
-                <p>{product.company}</p>
+                <p>{selectedProduct.company}</p>
                 <Text strong>Price</Text>
-                <p>${product.price}</p>
+                <p>${selectedProduct.price}</p>
                 <Text strong>Description:</Text>
-                <p>{product.info}</p>
+                <p>{selectedProduct.info}</p>
               </Card>
               <div className={classes.buttonContainer}>
                 <NavLink exact to="/">
@@ -117,7 +126,7 @@ const ProductDetailsPage: React.FC = (props: any): JSX.Element => {
           backgroundColor: "#fff",
         }}
       >
-        {/* <p>Loading...</p> */}
+        <Spin indicator={antIcon} />
       </div>
     );
   }

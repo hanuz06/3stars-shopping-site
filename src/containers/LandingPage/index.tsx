@@ -1,56 +1,56 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useState, useEffect } from "react";
 import { useStyles } from "./style";
 import PhoneCard from "../../components/PhoneCard";
-import { getProductsList } from "../../store/actions/productsActions";
+// import { getProductsList } from "../../store/actions/productsActions";
 import { useSelector, useDispatch } from "react-redux";
 import { useFirestoreConnect } from "react-redux-firebase";
-import { NavLink } from "react-router-dom";
+import { IProduct } from "../../utils/types";
+// import { NavLink } from "react-router-dom";
+// import { Modal, Button } from "antd";
+// import ProductDetailComponent from "./ProductDetailComponent";
 
 const LandingPage: React.FC = (): JSX.Element => {
+  const [productsList, setProductsList] = useState([]);
   const classes = useStyles();
   useFirestoreConnect([{ collection: "phones" }, { collection: "headsets" }]);
 
   const dispatch = useDispatch();
 
   // Get product list from Firestore
-  const productsList = useSelector<any, any>(
+  const products = useSelector<any, any>(
     (state) => state.firestore.ordered.phones
   );
 
-  // console.log("PHONES ", productsList);
+  useEffect(() => {
+    // dispatch(getProductsList());
+    // console.log("PHONES ", products);
+    // debugger;
+    setProductsList(products);
+  }, [products]);
 
   useEffect(() => {
-    dispatch(getProductsList());
-  }, []);
-
-  interface Products<T> {
-    id: number;
-    title: T;
-    image: T;
-    price: number;
-    company: T;
-    info: T;
-  }
+    setProductsList([]);
+  }, []); 
 
   // Get product list locally
-  // const productsList = useSelector<any, [Products<string>]>(
+  // const productsList = useSelector<any, [IProductProduct<string, number>]>(
   //   (state: any) => state.products.products
   // );
 
   return (
-    <section className={classes.cardContainer}>      
+    <section className={classes.cardContainer}>
+      {/* <ProductDetailComponent visible={visible} /> */}
       {productsList &&
         productsList.map((phone: any) => (
-          <NavLink key={phone.id} to={`/details/${phone.id}`}>
-            <PhoneCard
-              id={phone.id}
-              title={phone.title}
-              image={phone.img}
-              price={phone.price}
-              company={phone.company}
-              info={phone.info}
-            />
-          </NavLink>
+          <PhoneCard
+            key={phone.id}
+            id={phone.id}
+            title={phone.title}
+            image={phone.img}
+            price={phone.price}
+            company={phone.company}
+            info={phone.info}
+          />
         ))}
     </section>
   );

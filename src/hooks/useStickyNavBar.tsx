@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useLayoutEffect } from "react";
 
 const useStickyNavBar = (ref: any) => {
   const [isSticky, setSticky] = useState<boolean>(false);
@@ -10,7 +10,7 @@ const useStickyNavBar = (ref: any) => {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {

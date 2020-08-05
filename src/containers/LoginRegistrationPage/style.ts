@@ -21,6 +21,7 @@ export const useStyles = createUseStyles({
     margin: {
       left: 5,
       right: 5,
+      bottom: 5,
     },
   },
   wrapContainer: {

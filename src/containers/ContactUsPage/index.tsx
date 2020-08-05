@@ -62,8 +62,7 @@ const ContactUsPage: React.FC = (): JSX.Element => {
             name="nest-messages"
             onFinish={onFinish}
             validateMessages={validateMessages}
-            size="large"
-            // style={{float:'left'}}
+            size="large"            
           >
             <Form.Item
               name={["user", "name"]}
@@ -99,5 +98,3 @@ const ContactUsPage: React.FC = (): JSX.Element => {
 };
 
 export default ContactUsPage;
-
-// 150 9 Ave SW, Calgary, AB T2P 3H9

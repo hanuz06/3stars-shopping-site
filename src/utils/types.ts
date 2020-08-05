@@ -30,10 +30,19 @@ export interface NewAccountParameters {
   password: string;
 }
 
-export interface ProductDetails<T> {
+// export interface ProductDetails<T> {
+//   title: T;
+//   img: T;
+//   price: number;
+//   company: T;
+//   info: T;
+// }
+
+export interface IProduct<T, N> {
+  id: N;
   title: T;
-  img: T;
-  price: number;
+  image: T;
+  price: N;
   company: T;
   info: T;
 }
