@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useStyles } from "./style";
+import { searchQuery } from "../../store/actions/productsActions";
+import { useDispatch } from "react-redux";
+
 import { Layout, Menu, Typography, Input } from "antd";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/3stars.png";
@@ -15,10 +18,15 @@ const LowerNavbar = () => {
   const [searchWord, setSearchWord] = useState("");
 
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const handleClick = (e: any) => setCurrent(e.key);
-  const hangleSearch = (word: string) => setSearchWord(word);
   const setKey = () => setCurrent("1");
+
+  const handleSearch = (query: string) => {
+    setSearchWord(query);
+    dispatch(searchQuery(query));
+  };
 
   return (
     <span className="sticky-inner">
@@ -29,11 +37,11 @@ const LowerNavbar = () => {
           </NavLink>
           <Search
             placeholder="input search text"
-            onSearch={(value: string) => console.log(value)}
+            // onSearch={(value: string) => console.log(value)}
             enterButton
             size="large"
             allowClear
-            onChange={(e) => hangleSearch(e.target.value)}
+            onChange={(e) => handleSearch(e.target.value)}
             value={searchWord}
             maxLength={30}
             className={classes.searchWindow}
