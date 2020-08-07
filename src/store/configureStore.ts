@@ -1,7 +1,34 @@
-// When you add Redux to your project, start off with something like this:
+import { compose, createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { getFirebase } from "react-redux-firebase";
+import {
+  reduxFirestore,
+  getFirestore,
+  createFirestoreInstance,
+} from "redux-firestore";
+import rootReducer from "./reducers/rootReducer";
+import fbConfig from "../lib/fbConfig";
+import firebase from "firebase/app";
 
-// src/redux/actions - Create a file for each set of related actions, like userActions.js, productActions.js, etc. I like to bundle action creators and the related action constants in the same file.
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
 
-// src/redux/reducers - Create a file for each reducer, and an index.js in here to contain the “root” reducer.
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// src/redux/configureStore.js - Create and configure the store here. You can just import rootReducer from './reducers'.
+export const store = createStore(
+  rootReducer,
+  composeEnhancers(
+    applyMiddleware(thunk.withExtraArgument({ getFirestore, getFirebase })),
+    reduxFirestore(fbConfig)
+  )
+);
+
+export const rrfProps = {
+  firebase,
+  config: fbConfig,
+  dispatch: store.dispatch,
+  createFirestoreInstance,
+};
