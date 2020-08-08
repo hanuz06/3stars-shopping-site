@@ -26,15 +26,12 @@ const UpperNavbar: React.FC = (): JSX.Element => {
 
   const dispatch = useDispatch();
 
-  // const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn);
-
   // loggedInUserFirstName is coming from Redux state. On page reload redux is lost so userNameFromSessionStorage is used to keep the name for login/logout button.
   const loggedInUserFirstName = useSelector(
-    (state: any) => state.auth.loggedInUser.firstName
+    (state: any) => state.auth.loggedInUser
   );
-  const userNameFromSessionStorage = sessionStorage.getItem("firstName");
+
   const auth = useSelector((state: any) => state.firebase.auth);
-  // const fireStoreData = useSelector((state: any) => state.firestore);
 
   const logOut = () => {
     dispatch(signOut());
@@ -85,15 +82,9 @@ const UpperNavbar: React.FC = (): JSX.Element => {
             <div onClick={logOut} className={classes.loginSignupLink}>
               <LogoutOutlined style={{ color: "white" }} />
               <NavLink exact to="/">
-                {loggedInUserFirstName ? (
-                  <Text className={classes.textStyle}>
-                    Hello, {loggedInUserFirstName}
-                  </Text>
-                ) : (
-                  <Text className={classes.textStyle}>
-                    Hello, {userNameFromSessionStorage}
-                  </Text>
-                )}
+                <Text className={classes.textStyle}>
+                  Hello, {loggedInUserFirstName || auth.displayName}
+                </Text>
 
                 <Text className={classes.textStyle}>Logout</Text>
               </NavLink>

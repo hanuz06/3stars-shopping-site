@@ -17,11 +17,12 @@ const initState: IAuthState = {
   signinError: null,
   signupError: null,
   isLoggedIn: false,
-  loggedInUser: {
-    email: "",
-    firstName: "",
-    lastName: "",
-  },
+  loggedInUser: "",
+  // loggedInUser: {
+  //   email: "",
+  //   firstName: "",
+  //   lastName: "",
+  // },
 };
 
 const authReducer = (state = initState, action: AuthActionsType) => {
@@ -54,11 +55,12 @@ const authReducer = (state = initState, action: AuthActionsType) => {
         ...state,
         authError: null,
         isLoggedIn: false,
-        loggedInUser: {
-          email: "",
-          firstName: "",
-          lastName: "",
-        },
+        // loggedInUser: {
+        //   email: "",
+        //   firstName: "",
+        //   lastName: "",
+        // },
+        loggedInUser: "",
       };
     }
     case SIGNUP_FAIL:

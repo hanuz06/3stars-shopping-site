@@ -43,11 +43,12 @@ export interface IAuthState {
   signupError: string | null;
   signinError: string | null;
   isLoggedIn: boolean;
-  loggedInUser: {
-    email: string;
-    firstName: string;
-    lastName: string;
-  };
+  loggedInUser: string;
+  // loggedInUser: {
+  //   email: string;
+  //   firstName: string;
+  //   lastName: string;
+  // };
 }
 
 interface ISignupSigninStartEnd {
@@ -60,11 +61,12 @@ interface ISignupSigninStartEnd {
 
 interface ISignupSigninSuccess {
   type: typeof SIGNUP_SUCCESS | typeof SIGNIN_SUCCESS;
-  loggedInUser: {
-    email: string;
-    firstName: string;
-    lastName: string;
-  };
+  loggedInUser: string;
+  // loggedInUser: {
+  //   email: string;
+  //   firstName: string;
+  //   lastName: string;
+  // };
 }
 
 interface ISignoutSuccess {

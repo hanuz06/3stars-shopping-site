@@ -8,7 +8,7 @@ import {
   SIGNUP_FAIL,
   SIGNUP_SUCCESS,
   SIGNOUT_SUCCESS,
-  NewAccountParameters
+  NewAccountParameters,
 } from "../../utils/types";
 
 // Signup action
@@ -27,27 +27,27 @@ export const signUp = ({ user, email, password }: NewAccountParameters) => {
         .auth()
         .createUserWithEmailAndPassword(email, password);
 
+      const currentUser = await firebase.auth().currentUser;
+
+      // Add a display name to user's profile
+      await currentUser.updateProfile({
+        displayName: user.firstName,
+      });
+
       // Send the verfication email
-      // const currentUser = firebase.auth().currentUser;
       // await currentUser.sendEmailVerification();
-    
+
       await firestore.collection("users").doc(res.user.uid).set({
         firstName: user.firstName,
         lastName: user.lastName,
         email: email,
       });
 
-      sessionStorage.setItem("firstName", user.firstName);
-
       dispatch({
         type: SIGNUP_SUCCESS,
-        loggedInUser: {
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: email,
-        },
+        loggedInUser: user.firstName,
       });
-    } catch (err) {      
+    } catch (err) {
       dispatch({ type: SIGNUP_FAIL, signupError: err.message });
     }
     dispatch({ type: SIGNUP_END });
@@ -69,16 +69,8 @@ export const signIn = ({ email, password }: NewAccountParameters) => {
       const res = await firebase
         .auth()
         .signInWithEmailAndPassword(email, password);
-      const userData = await firestore
-        .collection("users")
-        .doc(res.user.uid)
-        .get();
 
-      const loggedInUser = userData.data();
-
-      sessionStorage.setItem("firstName", loggedInUser.firstName);
-
-      dispatch({ type: SIGNIN_SUCCESS, loggedInUser });
+      dispatch({ type: SIGNIN_SUCCESS, loggedInUser: res.displayName });
     } catch (err) {
       dispatch({ type: SIGNIN_FAIL, signinError: err.message });
     }
